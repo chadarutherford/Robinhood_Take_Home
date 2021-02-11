@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06E5FD5456C53BD7349B6FB588E0875C /* RHInteractiveLinePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491113C33EB661B8E4CBB94E129E25E7 /* RHInteractiveLinePlot.swift */; };
+		362AC7B8CC39864C880466AD92B26EDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		41849450F3EBDB6C97BD3E552DA303CD /* RHLinePlot+Segmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA306707EE8333E49F45032651910641 /* RHLinePlot+Segmented.swift */; };
+		46E678F185DE93105A1E3070C0BE3DAE /* RHLinePlot-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3696432D1F6A5D8A6E254E66ACC3CC /* RHLinePlot-dummy.m */; };
+		5D081618C06D7AFA31A93732CDDB7594 /* LinePlotValueStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855FFBC5B9A50F17E31BDED5D98881F6 /* LinePlotValueStick.swift */; };
+		77BCF271FD7E424E88D97BA032C36769 /* RHLinePlotConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3519FF754435FDF0F188111C7B9F3C56 /* RHLinePlotConfig.swift */; };
+		7C86A8F8B89C99195283AABEDE15A27A /* Pods-YOKE_Take_Home_Chad_Rutherford-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC5C1493A5DC0C67852854FC9D82D /* Pods-YOKE_Take_Home_Chad_Rutherford-dummy.m */; };
+		8DE9C39ED8D035117D97274681744D08 /* RHLinePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D425C0491CBA1C1957761A285A6D9E19 /* RHLinePlot.swift */; };
+		922CBFA896410DF0684F8155D9AC5F60 /* PressAndHorizontalDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D38B2943358949348D9DE84B8D8049 /* PressAndHorizontalDragGesture.swift */; };
+		98DBEBA1BF373E589109F0452D49F245 /* RHLinePlot+NotSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD01FB33ADD07DA0217F4653613A5085 /* RHLinePlot+NotSegmented.swift */; };
+		B249630F30828A18C874CD4D608A66F8 /* RHLinePlot-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CFFC657238BFD96C27971BBAF40BB1 /* RHLinePlot-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0F09F9C7D115CC68137EE85DD68E03A /* Pods-YOKE_Take_Home_Chad_Rutherford-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E80507B183FB3F8C3240134C6E194895 /* Pods-YOKE_Take_Home_Chad_Rutherford-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6975D01A58636F3F3AD5E7E77AEDB42 /* GlowingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5B25B3755E0FEEAAD1B2760D00BA7 /* GlowingIndicator.swift */; };
+		CA145FFD353BB5CFBFBA9D9CF292776F /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070EC959056D015220438A6A854402C9 /* Misc.swift */; };
+		EB0F6B087751CC95424C50A7AF2A4335 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		43E0D120C71401A7D971C5A3843501DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C9F870FF69A4089551FB3AF610626F1;
+			remoteInfo = RHLinePlot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03D38B2943358949348D9DE84B8D8049 /* PressAndHorizontalDragGesture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PressAndHorizontalDragGesture.swift; path = RHLinePlot/PressAndHorizontalDragGesture.swift; sourceTree = "<group>"; };
+		070EC959056D015220438A6A854402C9 /* Misc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Misc.swift; path = RHLinePlot/Misc.swift; sourceTree = "<group>"; };
+		0C3696432D1F6A5D8A6E254E66ACC3CC /* RHLinePlot-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RHLinePlot-dummy.m"; sourceTree = "<group>"; };
+		0E7E155CA4CC6B68BCAA32EDCD67FE22 /* RHLinePlot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RHLinePlot.release.xcconfig; sourceTree = "<group>"; };
+		10F47D46AB225089E3E4A5D47E83197C /* Pods-YOKE_Take_Home_Chad_Rutherford.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YOKE_Take_Home_Chad_Rutherford.modulemap"; sourceTree = "<group>"; };
+		28CFFC657238BFD96C27971BBAF40BB1 /* RHLinePlot-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RHLinePlot-umbrella.h"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3519FF754435FDF0F188111C7B9F3C56 /* RHLinePlotConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RHLinePlotConfig.swift; path = RHLinePlot/RHLinePlotConfig.swift; sourceTree = "<group>"; };
+		42E185646333C082E2DC22C167313629 /* Pods-YOKE_Take_Home_Chad_Rutherford.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YOKE_Take_Home_Chad_Rutherford.release.xcconfig"; sourceTree = "<group>"; };
+		491113C33EB661B8E4CBB94E129E25E7 /* RHInteractiveLinePlot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RHInteractiveLinePlot.swift; path = RHLinePlot/RHInteractiveLinePlot.swift; sourceTree = "<group>"; };
+		4BF5B25B3755E0FEEAAD1B2760D00BA7 /* GlowingIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlowingIndicator.swift; path = RHLinePlot/GlowingIndicator.swift; sourceTree = "<group>"; };
+		62B094E1BB031B6737AB0B98A21427AD /* Pods-YOKE_Take_Home_Chad_Rutherford-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YOKE_Take_Home_Chad_Rutherford-acknowledgements.plist"; sourceTree = "<group>"; };
+		7FEBAE49BE83AC5E3A21C61C8D0C2979 /* RHLinePlot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RHLinePlot.debug.xcconfig; sourceTree = "<group>"; };
+		855FFBC5B9A50F17E31BDED5D98881F6 /* LinePlotValueStick.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinePlotValueStick.swift; path = RHLinePlot/LinePlotValueStick.swift; sourceTree = "<group>"; };
+		9173ABE1FF41D88E3D2D2AC19998593C /* RHLinePlot-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RHLinePlot-prefix.pch"; sourceTree = "<group>"; };
+		91A0414256A721824857936C5F2426B0 /* RHLinePlot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RHLinePlot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9486325AADDF7F3CAFA257AD2A4A046C /* Pods-YOKE_Take_Home_Chad_Rutherford.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YOKE_Take_Home_Chad_Rutherford.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AA306707EE8333E49F45032651910641 /* RHLinePlot+Segmented.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RHLinePlot+Segmented.swift"; path = "RHLinePlot/RHLinePlot+Segmented.swift"; sourceTree = "<group>"; };
+		AB50E05588A62DDD0F9993C8AC71307F /* Pods-YOKE_Take_Home_Chad_Rutherford-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YOKE_Take_Home_Chad_Rutherford-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AFCCC5C1493A5DC0C67852854FC9D82D /* Pods-YOKE_Take_Home_Chad_Rutherford-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YOKE_Take_Home_Chad_Rutherford-dummy.m"; sourceTree = "<group>"; };
+		B54C84D9D78B07740A2C3B4613BC1E79 /* RHLinePlot-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RHLinePlot-Info.plist"; sourceTree = "<group>"; };
+		BD01FB33ADD07DA0217F4653613A5085 /* RHLinePlot+NotSegmented.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RHLinePlot+NotSegmented.swift"; path = "RHLinePlot/RHLinePlot+NotSegmented.swift"; sourceTree = "<group>"; };
+		BD63545AF4C9216A026A07A3A76EDC82 /* RHLinePlot.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RHLinePlot.modulemap; sourceTree = "<group>"; };
+		BEF49C14F96DDF634D4D3505512D5E8E /* Pods_YOKE_Take_Home_Chad_Rutherford.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YOKE_Take_Home_Chad_Rutherford.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D425C0491CBA1C1957761A285A6D9E19 /* RHLinePlot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RHLinePlot.swift; path = RHLinePlot/RHLinePlot.swift; sourceTree = "<group>"; };
+		E71DFC2547F14F4DCC5AEC6F78E0F5E1 /* Pods-YOKE_Take_Home_Chad_Rutherford-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YOKE_Take_Home_Chad_Rutherford-Info.plist"; sourceTree = "<group>"; };
+		E80507B183FB3F8C3240134C6E194895 /* Pods-YOKE_Take_Home_Chad_Rutherford-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YOKE_Take_Home_Chad_Rutherford-umbrella.h"; sourceTree = "<group>"; };
+		FB7600874B1F272585E8E98DA4C746E8 /* Pods-YOKE_Take_Home_Chad_Rutherford-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YOKE_Take_Home_Chad_Rutherford-frameworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C2ECEB65DADD2276EDE29784E83B240 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB0F6B087751CC95424C50A7AF2A4335 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BD616D6941746B96528435281E39D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				362AC7B8CC39864C880466AD92B26EDF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		018CF06C85385F2B682C17C4D08AED60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7570A088145177D2E7A8ABF4C66D9C4 /* RHLinePlot */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		04AC12E2135FF9DD628EB4D2A4CEF530 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A744F73AC7DC0577D7C524210A5E47D1 /* Pods-YOKE_Take_Home_Chad_Rutherford */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		30AAE15181DEE83079CD449A87506272 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEF49C14F96DDF634D4D3505512D5E8E /* Pods_YOKE_Take_Home_Chad_Rutherford.framework */,
+				91A0414256A721824857936C5F2426B0 /* RHLinePlot.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45180038120B7CF4E025BA096DF35B13 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD63545AF4C9216A026A07A3A76EDC82 /* RHLinePlot.modulemap */,
+				0C3696432D1F6A5D8A6E254E66ACC3CC /* RHLinePlot-dummy.m */,
+				B54C84D9D78B07740A2C3B4613BC1E79 /* RHLinePlot-Info.plist */,
+				9173ABE1FF41D88E3D2D2AC19998593C /* RHLinePlot-prefix.pch */,
+				28CFFC657238BFD96C27971BBAF40BB1 /* RHLinePlot-umbrella.h */,
+				7FEBAE49BE83AC5E3A21C61C8D0C2979 /* RHLinePlot.debug.xcconfig */,
+				0E7E155CA4CC6B68BCAA32EDCD67FE22 /* RHLinePlot.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RHLinePlot";
+			sourceTree = "<group>";
+		};
+		A744F73AC7DC0577D7C524210A5E47D1 /* Pods-YOKE_Take_Home_Chad_Rutherford */ = {
+			isa = PBXGroup;
+			children = (
+				10F47D46AB225089E3E4A5D47E83197C /* Pods-YOKE_Take_Home_Chad_Rutherford.modulemap */,
+				AB50E05588A62DDD0F9993C8AC71307F /* Pods-YOKE_Take_Home_Chad_Rutherford-acknowledgements.markdown */,
+				62B094E1BB031B6737AB0B98A21427AD /* Pods-YOKE_Take_Home_Chad_Rutherford-acknowledgements.plist */,
+				AFCCC5C1493A5DC0C67852854FC9D82D /* Pods-YOKE_Take_Home_Chad_Rutherford-dummy.m */,
+				FB7600874B1F272585E8E98DA4C746E8 /* Pods-YOKE_Take_Home_Chad_Rutherford-frameworks.sh */,
+				E71DFC2547F14F4DCC5AEC6F78E0F5E1 /* Pods-YOKE_Take_Home_Chad_Rutherford-Info.plist */,
+				E80507B183FB3F8C3240134C6E194895 /* Pods-YOKE_Take_Home_Chad_Rutherford-umbrella.h */,
+				9486325AADDF7F3CAFA257AD2A4A046C /* Pods-YOKE_Take_Home_Chad_Rutherford.debug.xcconfig */,
+				42E185646333C082E2DC22C167313629 /* Pods-YOKE_Take_Home_Chad_Rutherford.release.xcconfig */,
+			);
+			name = "Pods-YOKE_Take_Home_Chad_Rutherford";
+			path = "Target Support Files/Pods-YOKE_Take_Home_Chad_Rutherford";
+			sourceTree = "<group>";
+		};
+		A7570A088145177D2E7A8ABF4C66D9C4 /* RHLinePlot */ = {
+			isa = PBXGroup;
+			children = (
+				4BF5B25B3755E0FEEAAD1B2760D00BA7 /* GlowingIndicator.swift */,
+				855FFBC5B9A50F17E31BDED5D98881F6 /* LinePlotValueStick.swift */,
+				070EC959056D015220438A6A854402C9 /* Misc.swift */,
+				03D38B2943358949348D9DE84B8D8049 /* PressAndHorizontalDragGesture.swift */,
+				491113C33EB661B8E4CBB94E129E25E7 /* RHInteractiveLinePlot.swift */,
+				D425C0491CBA1C1957761A285A6D9E19 /* RHLinePlot.swift */,
+				BD01FB33ADD07DA0217F4653613A5085 /* RHLinePlot+NotSegmented.swift */,
+				AA306707EE8333E49F45032651910641 /* RHLinePlot+Segmented.swift */,
+				3519FF754435FDF0F188111C7B9F3C56 /* RHLinePlotConfig.swift */,
+				45180038120B7CF4E025BA096DF35B13 /* Support Files */,
+			);
+			path = RHLinePlot;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				018CF06C85385F2B682C17C4D08AED60 /* Pods */,
+				30AAE15181DEE83079CD449A87506272 /* Products */,
+				04AC12E2135FF9DD628EB4D2A4CEF530 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3B5E3C77B79FDA81C1EA6A966133C6F7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0F09F9C7D115CC68137EE85DD68E03A /* Pods-YOKE_Take_Home_Chad_Rutherford-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1963A019AA1090792D6913F68FADC43 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B249630F30828A18C874CD4D608A66F8 /* RHLinePlot-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4C9F870FF69A4089551FB3AF610626F1 /* RHLinePlot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E32DA2A5B09C4E0A3324C73DF1B107B /* Build configuration list for PBXNativeTarget "RHLinePlot" */;
+			buildPhases = (
+				D1963A019AA1090792D6913F68FADC43 /* Headers */,
+				8D7F70656C3F59D84EA8ED20AB64C422 /* Sources */,
+				2C2ECEB65DADD2276EDE29784E83B240 /* Frameworks */,
+				76793587AA62EA79202D9285550D8E32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RHLinePlot;
+			productName = RHLinePlot;
+			productReference = 91A0414256A721824857936C5F2426B0 /* RHLinePlot.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DB53D23CBE60BE70B8AD55668663C0B0 /* Pods-YOKE_Take_Home_Chad_Rutherford */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69EC2927EC8A8F4EE762AB68DD35D492 /* Build configuration list for PBXNativeTarget "Pods-YOKE_Take_Home_Chad_Rutherford" */;
+			buildPhases = (
+				3B5E3C77B79FDA81C1EA6A966133C6F7 /* Headers */,
+				C66EA42C4AE0CE35C6A78D84F855ED55 /* Sources */,
+				B1BD616D6941746B96528435281E39D4 /* Frameworks */,
+				90B44E83D7E08479A4851E360DED5D98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				557C7260DC2CE50E2F5F85917728E3EF /* PBXTargetDependency */,
+			);
+			name = "Pods-YOKE_Take_Home_Chad_Rutherford";
+			productName = "Pods-YOKE_Take_Home_Chad_Rutherford";
+			productReference = BEF49C14F96DDF634D4D3505512D5E8E /* Pods_YOKE_Take_Home_Chad_Rutherford.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 30AAE15181DEE83079CD449A87506272 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB53D23CBE60BE70B8AD55668663C0B0 /* Pods-YOKE_Take_Home_Chad_Rutherford */,
+				4C9F870FF69A4089551FB3AF610626F1 /* RHLinePlot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		76793587AA62EA79202D9285550D8E32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B44E83D7E08479A4851E360DED5D98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D7F70656C3F59D84EA8ED20AB64C422 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6975D01A58636F3F3AD5E7E77AEDB42 /* GlowingIndicator.swift in Sources */,
+				5D081618C06D7AFA31A93732CDDB7594 /* LinePlotValueStick.swift in Sources */,
+				CA145FFD353BB5CFBFBA9D9CF292776F /* Misc.swift in Sources */,
+				922CBFA896410DF0684F8155D9AC5F60 /* PressAndHorizontalDragGesture.swift in Sources */,
+				06E5FD5456C53BD7349B6FB588E0875C /* RHInteractiveLinePlot.swift in Sources */,
+				98DBEBA1BF373E589109F0452D49F245 /* RHLinePlot+NotSegmented.swift in Sources */,
+				41849450F3EBDB6C97BD3E552DA303CD /* RHLinePlot+Segmented.swift in Sources */,
+				46E678F185DE93105A1E3070C0BE3DAE /* RHLinePlot-dummy.m in Sources */,
+				8DE9C39ED8D035117D97274681744D08 /* RHLinePlot.swift in Sources */,
+				77BCF271FD7E424E88D97BA032C36769 /* RHLinePlotConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C66EA42C4AE0CE35C6A78D84F855ED55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C86A8F8B89C99195283AABEDE15A27A /* Pods-YOKE_Take_Home_Chad_Rutherford-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		557C7260DC2CE50E2F5F85917728E3EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RHLinePlot;
+			target = 4C9F870FF69A4089551FB3AF610626F1 /* RHLinePlot */;
+			targetProxy = 43E0D120C71401A7D971C5A3843501DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		772FACA67361A3A8C0A787B1CEB0C54F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E7E155CA4CC6B68BCAA32EDCD67FE22 /* RHLinePlot.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RHLinePlot/RHLinePlot-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RHLinePlot/RHLinePlot-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RHLinePlot/RHLinePlot.modulemap";
+				PRODUCT_MODULE_NAME = RHLinePlot;
+				PRODUCT_NAME = RHLinePlot;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8A3650F6C8AC2EFFA814EA61C37468B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9F1C1FDC5DB634B3909881E5D0EFF2C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FEBAE49BE83AC5E3A21C61C8D0C2979 /* RHLinePlot.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RHLinePlot/RHLinePlot-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RHLinePlot/RHLinePlot-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RHLinePlot/RHLinePlot.modulemap";
+				PRODUCT_MODULE_NAME = RHLinePlot;
+				PRODUCT_NAME = RHLinePlot;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A44E3EFE5651BF227C43DFB3DCAA47C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9486325AADDF7F3CAFA257AD2A4A046C /* Pods-YOKE_Take_Home_Chad_Rutherford.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YOKE_Take_Home_Chad_Rutherford/Pods-YOKE_Take_Home_Chad_Rutherford-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YOKE_Take_Home_Chad_Rutherford/Pods-YOKE_Take_Home_Chad_Rutherford.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AF1F8D2941B0228930706FA0F2C9BB78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B57FBD97FBF7EFDE4C42D989142D8878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42E185646333C082E2DC22C167313629 /* Pods-YOKE_Take_Home_Chad_Rutherford.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YOKE_Take_Home_Chad_Rutherford/Pods-YOKE_Take_Home_Chad_Rutherford-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YOKE_Take_Home_Chad_Rutherford/Pods-YOKE_Take_Home_Chad_Rutherford.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A3650F6C8AC2EFFA814EA61C37468B1 /* Debug */,
+				AF1F8D2941B0228930706FA0F2C9BB78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E32DA2A5B09C4E0A3324C73DF1B107B /* Build configuration list for PBXNativeTarget "RHLinePlot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F1C1FDC5DB634B3909881E5D0EFF2C1 /* Debug */,
+				772FACA67361A3A8C0A787B1CEB0C54F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69EC2927EC8A8F4EE762AB68DD35D492 /* Build configuration list for PBXNativeTarget "Pods-YOKE_Take_Home_Chad_Rutherford" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A44E3EFE5651BF227C43DFB3DCAA47C4 /* Debug */,
+				B57FBD97FBF7EFDE4C42D989142D8878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
