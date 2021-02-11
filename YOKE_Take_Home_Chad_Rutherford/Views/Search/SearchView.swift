@@ -9,8 +9,30 @@
 import SwiftUI
 
 struct SearchView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @State private var searchText = ""
+    @State private var isEditing = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            SearchBar(placeholder: "Search ...", text: $searchText)
+                .onTapGesture {
+                    self.isEditing = true
+                }
+
+            if isEditing {
+                Button(action: {
+                    UIApplication.shared.endEditing(true)
+                    self.isEditing = false
+                    self.searchText = ""
+                }) {
+                    Text("Cancel")
+                }
+                .padding(.trailing, 10)
+                .transition(.move(edge: .trailing))
+            }
+        }
+        .padding(.horizontal, 10)
     }
 }
 
