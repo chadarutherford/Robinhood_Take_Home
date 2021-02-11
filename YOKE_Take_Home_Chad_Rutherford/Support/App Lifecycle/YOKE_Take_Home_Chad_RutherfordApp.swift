@@ -12,7 +12,7 @@ import SwiftUI
 struct YOKE_Take_Home_Chad_RutherfordApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }

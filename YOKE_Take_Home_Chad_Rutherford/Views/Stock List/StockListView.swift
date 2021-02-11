@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  StockListView.swift
 //  YOKE_Take_Home_Chad_Rutherford
 //
 //  Created by Chad Rutherford on 2/11/21.
@@ -9,8 +9,7 @@
 import RHLinePlot
 import SwiftUI
 
-struct ContentView: View {
-
+struct StockListView: View {
     let values: [CGFloat] = [1,2,3,4,3,2,1,2,3,4]
     let segments = [0,4,8]
     var body: some View {
@@ -24,8 +23,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct StockListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        StockListView()
     }
 }
