@@ -14,7 +14,11 @@ class SearchViewModel: ObservableObject {
     @Published var results = [SearchResult]()
     @Published var stockSymbol = "" {
         didSet {
-            fetchStockSymbols()
+            if stockSymbol == "" {
+                results.removeAll()
+            } else {
+                fetchStockSymbols()
+            }
         }
     }
 
