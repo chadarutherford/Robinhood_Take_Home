@@ -35,8 +35,20 @@ struct SearchView: View {
             .padding(.horizontal, 10)
 
             List {
-                ForEach(0 ... 8, id: \.self) { number in
-                    Text("Hello")
+                ForEach(searchViewModel.results) { result in
+                    HStack {
+                        Text(result.symbol)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+
+                        Spacer()
+
+                        Text(result.name)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.5)
+                            .frame(width: 140, height: 40, alignment: .trailing)
+
+                    }
                 }
             }
             .listStyle(InsetGroupedListStyle())
