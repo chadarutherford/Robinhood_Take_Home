@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = ""
+    @ObservedObject var searchViewModel = SearchViewModel()
     @State private var isEditing = false
 
     var body: some View {
         VStack {
             HStack {
-                SearchBar(placeholder: "Search ...", text: $searchText)
+                SearchBar(placeholder: "Search ...", text: $searchViewModel.stockSymbol)
                     .onTapGesture {
                         self.isEditing = true
                     }
@@ -24,7 +24,7 @@ struct SearchView: View {
                     Button(action: {
                         UIApplication.shared.endEditing(true)
                         self.isEditing = false
-                        self.searchText = ""
+                        self.searchViewModel.stockSymbol = ""
                     }) {
                         Text("Cancel")
                     }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CRNetworkingManager",
+        "repositoryURL": "git@github.com:chadarutherford/CRNetworkingManager.git",
+        "state": {
+          "branch": "master",
+          "revision": "7499f14607482034634b7cde40d33ca0de9fd7aa",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
