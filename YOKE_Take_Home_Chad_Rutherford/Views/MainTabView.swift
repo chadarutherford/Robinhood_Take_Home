@@ -13,7 +13,13 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             StockListView()
+                .tabItem {
+                    Label("List", systemImage: "list.dash")
+                }
             SearchView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
         }
     }
 }
