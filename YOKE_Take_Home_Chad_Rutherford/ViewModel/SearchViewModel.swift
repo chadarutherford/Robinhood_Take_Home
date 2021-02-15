@@ -14,7 +14,11 @@ class SearchViewModel: ObservableObject {
     @Published var results = [SearchResult]()
     @Published var stockSymbol = "" {
         didSet {
-            fetchStockSymbols()
+            if stockSymbol == "" {
+                results.removeAll()
+            } else {
+                fetchStockSymbols()
+            }
         }
     }
 
@@ -25,7 +29,7 @@ class SearchViewModel: ObservableObject {
         guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         let queryItem = URLQueryItem(name: "function", value: "SYMBOL_SEARCH")
-        let keywordItem = URLQueryItem(name: "keywords", value: "GME")
+        let keywordItem = URLQueryItem(name: "keywords", value: stockSymbol)
         let apiKey = URLQueryItem(name: "apikey", value: APIConstants.apiKey)
         components?.queryItems = [queryItem, keywordItem, apiKey]
         guard let url = components?.url else { return }
