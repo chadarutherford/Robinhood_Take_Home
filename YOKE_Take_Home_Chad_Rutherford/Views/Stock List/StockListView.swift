@@ -10,16 +10,29 @@ import RHLinePlot
 import SwiftUI
 
 struct StockListView: View {
-    let values: [CGFloat] = [1,2,3,4,3,2,1,2,3,4]
-    let segments = [0,4,8]
+//    let values: [CGFloat] = [1,2,3,4,3,2,1,2,3,4]
+//    let segments = [0,4,8]
     var body: some View {
-        RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.8, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
+        NavigationView {
+            List {
+                ForEach(0 ... 8, id: \.self) { number in
+                    NavigationLink(
+                        destination: Text("Destination"),
+                        label: {
+                            Text("Hello")
+                        })
 
-        } customLatestValueIndicator: {
-
-        } valueStickLabel: { value in
-
+                }
+            }
+            .navigationTitle("Stocks")
         }
+//        RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.8, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
+//
+//        } customLatestValueIndicator: {
+//
+//        } valueStickLabel: { value in
+//
+//        }
     }
 }
 
