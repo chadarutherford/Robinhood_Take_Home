@@ -10,7 +10,7 @@ import RHLinePlot
 import SwiftUI
 
 struct StockListView: View {
-//    let values: [CGFloat] = [1,2,3,4,3,2,1,2,3,4]
+    let values: [CGFloat] = [1,2,3,4,3,2,1,2,3,4]
 //    let segments = [0,4,8]
     var body: some View {
         NavigationView {
@@ -19,20 +19,35 @@ struct StockListView: View {
                     NavigationLink(
                         destination: Text("Destination"),
                         label: {
-                            Text("Hello")
+                            HStack {
+                                VStack (alignment: .leading) {
+                                    Text("VIAC")
+                                        .font(.body)
+                                        .fontWeight(.semibold)
+
+                                    Text("Viacom CBS")
+                                        .font(.callout)
+                                        .foregroundColor(.secondary)
+                                }
+
+                                Spacer()
+                                RHLinePlot(values: values)
+                                    .frame(width: 80, height: 40, alignment: .center)
+                                Spacer()
+
+                                Text("$56.89")
+                                    .foregroundColor(Color(.systemBackground))
+                                    .padding(.vertical, 9)
+                                    .padding(.horizontal, 10)
+                                    .background(Color.green)
+                                    .cornerRadius(8)
+                            }
                         })
 
                 }
             }
             .navigationTitle("Stocks")
         }
-//        RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.8, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
-//
-//        } customLatestValueIndicator: {
-//
-//        } valueStickLabel: { value in
-//
-//        }
     }
 }
 
