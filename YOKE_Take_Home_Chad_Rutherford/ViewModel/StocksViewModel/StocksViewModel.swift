@@ -15,7 +15,13 @@ class StocksViewModel: ObservableObject {
     var dataController: DataController
     var networkHandler: NetworkHandler
 
-    @Published var stockData = [StockData]()
+    @Published var stockData = [StockData]() {
+        didSet {
+            for stock in stockData {
+                networkHandler.fetchIntraday(for: stock, with: .intraday)
+            }
+        }
+    }
 
     var predeterminedStocks: [String] = [
         "TSLA",
