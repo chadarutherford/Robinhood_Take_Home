@@ -23,11 +23,11 @@ struct StockListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(stocksViewModel.coreDataStocks) { (stock: Stock) in
+                ForEach(stocksViewModel.stockData, id:\.stockSymbol) { (stock: StockData) in
                     NavigationLink(
                         destination: Text("Destination"),
                         label: {
-                            StockRowView(stock: stock)
+                            StockRowView(stockData: stock)
                         })
 
                 }

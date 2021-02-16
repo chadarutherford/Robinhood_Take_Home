@@ -15,8 +15,7 @@ class StocksViewModel: ObservableObject {
     var dataController: DataController
     var networkHandler: NetworkHandler
 
-    @Published var stocks = [SearchResult]()
-    @Published var coreDataStocks = [Stock]()
+    @Published var stockData = [StockData]()
 
     var predeterminedStocks: [String] = [
         "TSLA",
@@ -30,11 +29,18 @@ class StocksViewModel: ObservableObject {
     init(dataController: DataController) {
         self.dataController = dataController
         self.networkHandler = NetworkHandler(dataController: dataController)
+        if !UserDefaults.standard.bool(forKey: "didDownloadInitialData") {
+            networkHandler.fetchStocks(stockSymbols: predeterminedStocks) { stockData in
+                self.stockData = stockData
+            }
+        } else {
+            performFetch()
+        }
+    }
+
+    func performFetch() {
         let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
         let fetchedStocks = try! dataController.mainContext.fetch(fetchRequest)
-        self.coreDataStocks = fetchedStocks
-        if !UserDefaults.standard.bool(forKey: "didDownloadInitialData") {
-            networkHandler.fetchStocks(stocks: predeterminedStocks)
-        }
+        self.stockData = fetchedStocks
     }
 }

@@ -18,8 +18,9 @@ class NetworkHandler {
         self.dataController = dataController
     }
 
-    func fetchStocks(stocks: [String]) {
-        for stock in stocks {
+    func fetchStocks(stockSymbols: [String], completion: @escaping ([StockData]) -> Void) {
+        var stockData = [StockData]()
+        for stock in stockSymbols {
             guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
             var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
             let queryItem = URLQueryItem(name: "function", value: "SYMBOL_SEARCH")
@@ -34,7 +35,9 @@ class NetworkHandler {
                     print(error)
                 case .success(let results):
                     guard let result = results.results.first else { return }
-                    Stock(symbol: result.symbol, name: result.name)
+                    let stock = Stock(symbol: result.symbol, name: result.name)
+                    stockData.append(stock)
+                    completion(stockData)
                     do {
                         try self.dataController.save()
                     } catch {

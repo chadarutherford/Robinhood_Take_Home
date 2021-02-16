@@ -8,13 +8,21 @@
 
 import Foundation
 
-struct SearchResult: Codable, Identifiable {
+struct SearchResult: Codable, Identifiable, StockData {
     var id: String {
         return symbol
     }
     
     let symbol: String
     let name: String
+
+    var stockSymbol: String {
+        return symbol
+    }
+
+    var stockName: String {
+        return name
+    }
 
     enum SearchResultKeys: String, CodingKey {
         case symbol = "1. symbol"

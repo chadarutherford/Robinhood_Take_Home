@@ -9,8 +9,11 @@
 import CoreData
 import Foundation
 
-extension Stock {
-
+protocol StockData {
+    var stockSymbol: String { get }
+    var stockName: String { get }
+}
+extension Stock: StockData {
     static var example: Stock {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext

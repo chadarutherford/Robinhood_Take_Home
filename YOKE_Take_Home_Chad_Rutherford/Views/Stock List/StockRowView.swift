@@ -11,16 +11,16 @@ import SwiftUI
 
 struct StockRowView: View {
 
-    let stock: Stock
+    let stockData: StockData
 
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text(stock.stockSymbol)
+                Text(stockData.stockSymbol)
                     .font(.body)
                     .fontWeight(.semibold)
 
-                Text(stock.stockName)
+                Text(stockData.stockName)
                     .font(.callout)
                     .foregroundColor(.secondary)
             }
@@ -42,6 +42,6 @@ struct StockRowView: View {
 
 struct StockRowView_Previews: PreviewProvider {
     static var previews: some View {
-        StockRowView(stock: Stock.example)
+        StockRowView(stockData: Stock.example)
     }
 }
