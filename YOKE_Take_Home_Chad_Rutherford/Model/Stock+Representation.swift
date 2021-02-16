@@ -12,6 +12,10 @@ import Foundation
 protocol StockData {
     var stockSymbol: String { get }
     var stockName: String { get }
+    var intradayValues: [Intraday] { get }
+    var rowTickerValues: [Intraday] { get }
+    var firstValue: Intraday { get }
+    var isUp: Bool { get }
 }
 extension Stock: StockData {
     static var example: Stock {
@@ -27,6 +31,24 @@ extension Stock: StockData {
 
     var stockName: String {
         return name ?? ""
+    }
+
+    var intradayValues: [Intraday] {
+        intraday?.allObjects as? [Intraday] ?? []
+    }
+
+    var rowTickerValues: [Intraday] {
+        let sliceArray = (intraday?.allObjects as! [Intraday])[0 ..< 7]
+        return Array(sliceArray)
+    }
+
+    var firstValue: Intraday {
+        (intraday?.allObjects as? [Intraday])?.first ?? Intraday(open: 0.0, close: 0.0)
+    }
+
+    var isUp: Bool {
+        guard intradayValues.count >= 2 else { return false }
+        return intradayValues[0].close - intradayValues[1].close >= 0
     }
     
     @discardableResult convenience init(symbol: String, name: String, context: NSManagedObjectContext = DataController.shared.mainContext) {

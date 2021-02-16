@@ -18,7 +18,10 @@ class StocksViewModel: ObservableObject {
     @Published var stockData = [StockData]() {
         didSet {
             for stock in stockData {
-                networkHandler.fetchTimeSeries(for: stock, with: .intraday)
+                if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadTimeSeries) {
+                    networkHandler.fetchTimeSeries(for: stock, with: .intraday)
+                    UserDefaults.standard.set(true, forKey: UserDefaultsKeys.didDownloadTimeSeries)
+                }
             }
         }
     }
@@ -35,7 +38,7 @@ class StocksViewModel: ObservableObject {
     init(dataController: DataController) {
         self.dataController = dataController
         self.networkHandler = NetworkHandler(dataController: dataController)
-        if !UserDefaults.standard.bool(forKey: "didDownloadInitialData") {
+        if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadStockSymbols) {
             networkHandler.fetchStocks(stockSymbols: predeterminedStocks) { stockData in
                 self.stockData = stockData
             }

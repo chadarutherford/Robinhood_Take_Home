@@ -69,11 +69,16 @@ struct TimeEntry: Codable {
 
 enum TimeSeriesType {
     case intraday
+    case daily
+    case weekly
+    case monthly
 
     var dateFormat: String {
         switch self {
         case .intraday:
             return "yyyy-MM-dd HH:mm:ss"
+        case .daily, .weekly, .monthly:
+            return "yyyy-MM-dd"
         }
     }
 
@@ -81,6 +86,12 @@ enum TimeSeriesType {
         switch self {
         case .intraday:
             return "TIME_SERIES_INTRADAY"
+        case .daily:
+            return "TIME_SERIES_DAILY"
+        case .weekly:
+            return "TIME_SERIES_WEEKLY"
+        case .monthly:
+            return "TIME_SERIES_MONTHLY"
         }
     }
 }

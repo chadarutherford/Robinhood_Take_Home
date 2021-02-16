@@ -37,17 +37,15 @@ class NetworkHandler {
                 let results = try decoder.decode(TickerResults.self, from: data)
                 DispatchQueue.main.async {
                     for entry in results.timeSeries {
-                        let intradayResult = Intraday(open: entry.info.open, close: entry.info.close)
-                        if let cdStock = stock as? Stock {
-                            let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-                            fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
-                            let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
-                            intradayResult.stock = stockToUpdate?.first
-                            do {
-                                try DataController.shared.save()
-                            } catch {
-                                fatalError("Unable to save results")
-                            }
+                        switch type {
+                        case .intraday:
+                            self.saveToCoreData(stock: stock, entry: entry, type: .intraday)
+                        case .daily:
+                            self.saveToCoreData(stock: stock, entry: entry, type: .daily)
+                        case .weekly:
+                            self.saveToCoreData(stock: stock, entry: entry, type: .weekly)
+                        case .monthly:
+                            self.saveToCoreData(stock: stock, entry: entry, type: .monthly)
                         }
                     }
                 }
@@ -87,6 +85,26 @@ class NetworkHandler {
                     UserDefaults.standard.set(true, forKey: "didDownloadInitialData")
                 }
             }
+        }
+    }
+
+    func saveToCoreData(stock: StockData, entry: (time: Date, info: TimeEntry), type: TimeSeriesType) {
+        switch type {
+        case .intraday:
+            let intradayResult = Intraday(open: entry.info.open, close: entry.info.close)
+            if let cdStock = stock as? Stock {
+                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
+                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
+                intradayResult.stock = stockToUpdate?.first
+                do {
+                    try DataController.shared.save()
+                } catch {
+                    fatalError("Unable to save results")
+                }
+            }
+        default:
+            break
         }
     }
 }
