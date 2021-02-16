@@ -12,6 +12,9 @@ import SwiftUI
 struct StockRowView: View {
 
     let stockData: StockData
+    var values: [CGFloat] {
+        stockData.rowTickerValues.map { CGFloat($0.intraClose) }
+    }
 
     var body: some View {
         HStack {
@@ -26,16 +29,16 @@ struct StockRowView: View {
             }
 
             Spacer()
-//            RHLinePlot(values: values)
-//                .frame(width: 80, height: 40, alignment: .center)
+            RHLinePlot(values: values)
+                .frame(width: 80, height: 40, alignment: .center)
             Spacer()
 
-//            Text(stock.currentPrice)
-//                .foregroundColor(Color(.systemBackground))
-//                .padding(.vertical, 9)
-//                .padding(.horizontal, 10)
-//                .background(Color.green)
-//                .cornerRadius(8)
+            Text("$\(String(format: "%.2f", stockData.firstValue.intraClose))")
+                .foregroundColor(Color(.systemBackground))
+                .padding(.vertical, 9)
+                .padding(.horizontal, 10)
+                .background(stockData.isUp ? Color.green : Color.red)
+                .cornerRadius(8)
         }
     }
 }

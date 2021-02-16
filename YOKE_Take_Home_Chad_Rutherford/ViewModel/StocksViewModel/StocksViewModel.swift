@@ -15,7 +15,16 @@ class StocksViewModel: ObservableObject {
     var dataController: DataController
     var networkHandler: NetworkHandler
 
-    @Published var stockData = [StockData]()
+    @Published var stockData = [StockData]() {
+        didSet {
+            for stock in stockData {
+                if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadTimeSeries) {
+                    networkHandler.fetchTimeSeries(for: stock, with: .intraday)
+                    UserDefaults.standard.set(true, forKey: UserDefaultsKeys.didDownloadTimeSeries)
+                }
+            }
+        }
+    }
 
     var predeterminedStocks: [String] = [
         "TSLA",
@@ -29,7 +38,7 @@ class StocksViewModel: ObservableObject {
     init(dataController: DataController) {
         self.dataController = dataController
         self.networkHandler = NetworkHandler(dataController: dataController)
-        if !UserDefaults.standard.bool(forKey: "didDownloadInitialData") {
+        if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadStockSymbols) {
             networkHandler.fetchStocks(stockSymbols: predeterminedStocks) { stockData in
                 self.stockData = stockData
             }

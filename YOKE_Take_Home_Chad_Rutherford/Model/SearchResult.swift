@@ -24,6 +24,22 @@ struct SearchResult: Codable, Identifiable, StockData {
         return name
     }
 
+    var intradayValues: [Intraday] {
+        return []
+    }
+
+    var rowTickerValues: [Intraday] {
+        return []
+    }
+
+    var firstValue: Intraday {
+        return Intraday(open: 0.0, close: 0.0)
+    }
+
+    var isUp: Bool {
+        return false
+    }
+
     enum SearchResultKeys: String, CodingKey {
         case symbol = "1. symbol"
         case name = "2. name"
