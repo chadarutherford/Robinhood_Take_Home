@@ -10,9 +10,10 @@ import RHLinePlot
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject var dataController: DataController
     var body: some View {
         TabView {
-            StockListView()
+            StockListView(dataController: dataController)
                 .tabItem {
                     Label("List", systemImage: "list.dash")
                 }

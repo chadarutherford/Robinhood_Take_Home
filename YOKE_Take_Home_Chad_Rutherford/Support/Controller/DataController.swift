@@ -13,6 +13,8 @@ class DataController: ObservableObject {
 
     let container: NSPersistentContainer
 
+    static let shared = DataController()
+    
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "StockRecords", managedObjectModel: Self.model)
 
@@ -25,6 +27,7 @@ class DataController: ObservableObject {
                 fatalError("Fatal error loading stores: \(error.localizedDescription)")
             }
         }
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
 
     static let model: NSManagedObjectModel = {
@@ -37,10 +40,40 @@ class DataController: ObservableObject {
         return managedObjectModel
     }()
 
-    func save() {
-        if container.viewContext.hasChanges {
-            try? container.viewContext.save()
+    var mainContext: NSManagedObjectContext {
+        container.viewContext
+    }
+
+    static var preview: DataController = {
+        let dataController = DataController(inMemory: true)
+        let viewContext = dataController.container.viewContext
+        do {
+            Stock(symbol: "GME", name: "GameStop")
+            try viewContext.save()
+        } catch {
+            fatalError("Unable to create preview")
         }
+        return dataController
+    }()
+
+    func backgroundContext() -> NSManagedObjectContext {
+        return container.newBackgroundContext()
+    }
+
+    func save(context: NSManagedObjectContext = DataController.shared.mainContext) throws {
+        var error: Error?
+
+        context.performAndWait {
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch let saveError {
+                    error = saveError
+                }
+            }
+        }
+
+        if let error = error { throw error }
     }
 
     func delete(_ object: NSManagedObject) {

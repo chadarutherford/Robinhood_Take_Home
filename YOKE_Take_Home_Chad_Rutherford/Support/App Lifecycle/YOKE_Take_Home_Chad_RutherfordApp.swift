@@ -31,6 +31,10 @@ struct YOKE_Take_Home_Chad_RutherfordApp: App {
     }
 
     func save(_ note: Notification) {
-        dataController.save()
+        do {
+            try dataController.save(context: dataController.mainContext)
+        } catch {
+            dataController.mainContext.reset()
+        }
     }
 }
