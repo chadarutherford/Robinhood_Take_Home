@@ -6,6 +6,7 @@
 //  Copyright © 2021 Chad A. Rutherford. All rights reserved.
 //
 
+import CoreData
 import CRNetworkingManager
 import Foundation
 
@@ -18,7 +19,7 @@ class NetworkHandler {
         self.dataController = dataController
     }
 
-    func fetchIntraday(for stock: StockData, with type: TimeSeriesType) {
+    func fetchTimeSeries(for stock: StockData, with type: TimeSeriesType) {
         guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         let queryItem = URLQueryItem(name: "function", value: type.function)
@@ -28,7 +29,6 @@ class NetworkHandler {
         components?.queryItems = [queryItem, keywordItem, intervalItem, apiKey]
         guard let url = components?.url else { return }
 
-        print(url)
         URLSession.shared.dataTask(with: url) { data, response, _ in
             guard let data = data else { return }
             let decoder = JSONDecoder()
@@ -36,17 +36,18 @@ class NetworkHandler {
             do {
                 let results = try decoder.decode(TickerResults.self, from: data)
                 DispatchQueue.main.async {
-                    var intradayResults = Set<Intraday>()
                     for entry in results.timeSeries {
                         let intradayResult = Intraday(open: entry.info.open, close: entry.info.close)
-                        intradayResults.insert(intradayResult)
-                    }
-                    if let cdStock = stock as? Stock {
-                        cdStock.intraday = NSSet(set: intradayResults)
-                        do {
-                            try self.dataController.mainContext.save()
-                        } catch {
-                            fatalError("Unable to save results")
+                        if let cdStock = stock as? Stock {
+                            let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                            fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
+                            let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
+                            intradayResult.stock = stockToUpdate?.first
+                            do {
+                                try DataController.shared.save()
+                            } catch {
+                                fatalError("Unable to save results")
+                            }
                         }
                     }
                 }
@@ -56,15 +57,6 @@ class NetworkHandler {
             }
         }
         .resume()
-
-        //        networkManager.decodeObjects(using: url) { (result: Result<TickerResults, NetworkError>) in
-        //            switch result {
-        //            case .failure(let error):
-        //                print(error)
-        //            case .success(let results):
-        //                print(results.timeSeries)
-        //            }
-        //        }
     }
 
     func fetchStocks(stockSymbols: [String], completion: @escaping ([StockData]) -> Void) {

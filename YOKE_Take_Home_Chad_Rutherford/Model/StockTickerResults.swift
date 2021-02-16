@@ -20,7 +20,6 @@ struct TickerResults: Decodable {
 
     init(from decoder: Decoder) throws {
         let rootContainer = try decoder.container(keyedBy: DecoderKey.self)
-        print(rootContainer.allKeys)
         let timeKey = rootContainer.allKeys
             .first(where: { (key: DecoderKey) -> Bool in
                 key.stringValue.contains("Time Series")

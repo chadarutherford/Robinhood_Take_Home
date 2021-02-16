@@ -18,7 +18,7 @@ class StocksViewModel: ObservableObject {
     @Published var stockData = [StockData]() {
         didSet {
             for stock in stockData {
-                networkHandler.fetchIntraday(for: stock, with: .intraday)
+                networkHandler.fetchTimeSeries(for: stock, with: .intraday)
             }
         }
     }
