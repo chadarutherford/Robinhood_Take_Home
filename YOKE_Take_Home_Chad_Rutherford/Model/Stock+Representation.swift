@@ -38,8 +38,12 @@ extension Stock: StockData {
     }
 
     var rowTickerValues: [Intraday] {
-        let sliceArray = (intraday?.allObjects as! [Intraday])[0 ..< 7]
-        return Array(sliceArray)
+        if !intradayValues.isEmpty {
+            let sliceArray = (intraday?.allObjects as! [Intraday])[0 ..< 7]
+            return Array(sliceArray)
+        } else {
+            return []
+        }
     }
 
     var firstValue: Intraday {
