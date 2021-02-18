@@ -6,13 +6,14 @@
 //  Copyright © 2021 Chad A. Rutherford. All rights reserved.
 //
 
+import CoreData
 import RHLinePlot
 import SwiftUI
 
 struct StockListView: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var stocksViewModel: StocksViewModel
-    let values: [CGFloat] = [1,2,3,4,3,2,1,2,3,4]
+    let didSave = NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
 
     init(dataController: DataController) {
         let stocksViewModel = StocksViewModel(dataController: dataController)
@@ -29,11 +30,19 @@ struct StockListView: View {
                         label: {
                             StockRowView(stockData: stock)
                         })
-
                 }
             }
             .navigationTitle("Stocks")
         }
+        .onReceive(didSave) { _ in
+            fetch()
+        }
+    }
+
+    func fetch() {
+        let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+        guard let stocks = try? DataController.shared.mainContext.fetch(fetchRequest) as [StockData] else { return }
+        self.stocksViewModel.stockData = stocks
     }
 }
 

@@ -103,8 +103,45 @@ class NetworkHandler {
                     fatalError("Unable to save results")
                 }
             }
-        default:
-            break
+        case .daily:
+            let dailyResult = Daily(open: entry.info.open, close: entry.info.close)
+            if let cdStock = stock as? Stock {
+                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
+                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
+                dailyResult.stock = stockToUpdate?.first
+                do {
+                    try DataController.shared.save()
+                } catch {
+                    fatalError("Unable to save results")
+                }
+            }
+        case .weekly:
+            let weeklyResult = Weekly(open: entry.info.open, close: entry.info.close)
+            if let cdStock = stock as? Stock {
+                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
+                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
+                weeklyResult.stock = stockToUpdate?.first
+                do {
+                    try DataController.shared.save()
+                } catch {
+                    fatalError("Unable to save results")
+                }
+            }
+        case .monthly:
+            let monthlyResult = Monthly(open: entry.info.open, close: entry.info.close)
+            if let cdStock = stock as? Stock {
+                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
+                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
+                monthlyResult.stock = stockToUpdate?.first
+                do {
+                    try DataController.shared.save()
+                } catch {
+                    fatalError("Unable to save results")
+                }
+            }
         }
     }
 }

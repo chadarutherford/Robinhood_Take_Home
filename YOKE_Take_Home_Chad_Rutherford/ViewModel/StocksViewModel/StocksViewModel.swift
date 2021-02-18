@@ -18,11 +18,14 @@ class StocksViewModel: ObservableObject {
     @Published var stockData = [StockData]() {
         didSet {
             for stock in stockData {
-                if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadTimeSeries) {
+//                if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadTimeSeries) {
                     networkHandler.fetchTimeSeries(for: stock, with: .intraday)
-                    UserDefaults.standard.set(true, forKey: UserDefaultsKeys.didDownloadTimeSeries)
-                }
+                    networkHandler.fetchTimeSeries(for: stock, with: .daily)
+//                    networkHandler.fetchTimeSeries(for: stock, with: .weekly)
+//                    networkHandler.fetchTimeSeries(for: stock, with: .monthly)
+//                }
             }
+//            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.didDownloadTimeSeries)
         }
     }
 

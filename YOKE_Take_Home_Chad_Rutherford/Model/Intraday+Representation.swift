@@ -10,14 +10,54 @@ import CoreData
 import Foundation
 
 extension Intraday {
-
-    static var example: Stock {
-        let controller = DataController.preview
-        let viewContext = controller.container.viewContext
-        let stock = Stock(symbol: "GME", name: "GameStop", context: viewContext)
-        return stock
+    var intraOpen: Double {
+        return open
     }
 
+    var intraClose: Double {
+        return close
+    }
+
+    @discardableResult convenience init(open: Double, close: Double, context: NSManagedObjectContext = DataController.shared.mainContext) {
+        self.init(context: context)
+        self.open = open
+        self.close = close
+    }
+}
+
+extension Daily {
+    var intraOpen: Double {
+        return open
+    }
+
+    var intraClose: Double {
+        return close
+    }
+
+    @discardableResult convenience init(open: Double, close: Double, context: NSManagedObjectContext = DataController.shared.mainContext) {
+        self.init(context: context)
+        self.open = open
+        self.close = close
+    }
+}
+
+extension Weekly {
+    var intraOpen: Double {
+        return open
+    }
+
+    var intraClose: Double {
+        return close
+    }
+
+    @discardableResult convenience init(open: Double, close: Double, context: NSManagedObjectContext = DataController.shared.mainContext) {
+        self.init(context: context)
+        self.open = open
+        self.close = close
+    }
+}
+
+extension Monthly {
     var intraOpen: Double {
         return open
     }
