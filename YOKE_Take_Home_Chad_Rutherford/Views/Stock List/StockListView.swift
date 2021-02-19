@@ -12,42 +12,30 @@ import SwiftUI
 
 struct StockListView: View {
     @EnvironmentObject var dataController: DataController
-    @ObservedObject var stocksViewModel: StocksViewModel
+    @FetchRequest(
+        entity: Stock.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Stock.symbol, ascending: true)])
+    var stocks: FetchedResults<Stock>
     let didSave = NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
 
-    init(dataController: DataController) {
-        let stocksViewModel = StocksViewModel(dataController: dataController)
-        self._stocksViewModel = ObservedObject(wrappedValue: stocksViewModel)
-    }
-
-//    let segments = [0,4,8]
     var body: some View {
         NavigationView {
             List {
-                ForEach(stocksViewModel.stockData, id:\.stockSymbol) { (stock: StockData) in
+                ForEach(stocks) { stock in
                     NavigationLink(
                         destination: Text("Destination"),
                         label: {
-                            StockRowView(stockData: stock)
+                            StockRowView(stock: stock)
                         })
                 }
             }
             .navigationTitle("Stocks")
         }
-        .onReceive(didSave) { _ in
-            fetch()
-        }
-    }
-
-    func fetch() {
-        let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-        guard let stocks = try? DataController.shared.mainContext.fetch(fetchRequest) as [StockData] else { return }
-        self.stocksViewModel.stockData = stocks
     }
 }
 
 struct StockListView_Previews: PreviewProvider {
     static var previews: some View {
-        StockListView(dataController: DataController.preview)
+        StockListView()
     }
 }

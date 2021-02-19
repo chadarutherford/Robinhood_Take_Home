@@ -44,18 +44,6 @@ class DataController: ObservableObject {
         container.viewContext
     }
 
-    static var preview: DataController = {
-        let dataController = DataController(inMemory: true)
-        let viewContext = dataController.container.viewContext
-        do {
-            Stock(symbol: "GME", name: "GameStop")
-            try viewContext.save()
-        } catch {
-            fatalError("Unable to create preview")
-        }
-        return dataController
-    }()
-
     func backgroundContext() -> NSManagedObjectContext {
         return container.newBackgroundContext()
     }
@@ -74,19 +62,5 @@ class DataController: ObservableObject {
         }
 
         if let error = error { throw error }
-    }
-
-    func delete(_ object: NSManagedObject) {
-        container.viewContext.delete(object)
-    }
-
-    func deleteAll() {
-        // Create fetch request
-        // Create batch delete request
-        // execute batch
-    }
-
-    func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
-        (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
 }

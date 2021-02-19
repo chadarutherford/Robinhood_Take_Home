@@ -13,7 +13,7 @@ struct MainTabView: View {
     @EnvironmentObject var dataController: DataController
     var body: some View {
         TabView {
-            StockListView(dataController: dataController)
+            StockListView()
                 .tabItem {
                     Label("List", systemImage: "list.dash")
                 }
