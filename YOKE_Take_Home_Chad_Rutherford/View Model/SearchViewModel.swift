@@ -6,20 +6,23 @@
 //  Copyright © 2021 Chad A. Rutherford. All rights reserved.
 //
 
+import Combine
 import Foundation
 
 class SearchViewModel: ObservableObject {
 
-//    @Published var results = [SearchResult]()
-//    @Published var stockSymbol = "" {
-//        didSet {
-//            if stockSymbol == "" {
-//                results.removeAll()
-//            } else {
-//                fetchStockSymbols()
-//            }
-//        }
-//    }
+    var cancellables = Set<AnyCancellable>()
+    @Published var results = [SearchResult]()
+    @Published var stockSymbol = "" {
+        didSet {
+            if stockSymbol == "" {
+                results.removeAll()
+            } else {
+                fetchStockSymbols()
+            }
+        }
+    }
+
 
 
     func fetchStockSymbols() {
@@ -31,15 +34,20 @@ class SearchViewModel: ObservableObject {
         components?.queryItems = [queryItem, keywordItem, apiKey]
         guard let url = components?.url else { return }
 
-//        networkManager.decodeObjects(using: url) { (result: Result<SearchResults, NetworkError>) in
-//            switch result {
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            case .success(let stockSymbols):
-//                DispatchQueue.main.async {
-//                    self.results = stockSymbols.results
-//                }
-//            }
-//        }
+        let decoder = JSONDecoder()
+
+        URLSession.shared.dataTaskPublisher(for: url)
+            .receive(on: DispatchQueue.main)
+            .map(\.data)
+            .decode(type: SearchResults.self, decoder: decoder)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print("Something went wrong: \(error)")
+                }
+            } receiveValue: { [weak self] results in
+                guard let self = self else { return }
+                self.results = results.results
+            }
+            .store(in: &cancellables)
     }
 }
