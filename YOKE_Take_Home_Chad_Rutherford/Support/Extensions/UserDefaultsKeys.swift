@@ -9,5 +9,6 @@
 import Foundation
 
 enum UserDefaultsKeys {
+    // Key for the UserDefaults boolean indicating whether or not the initial data has been downloaded.
     static let didDownloadInitialData = "didDownloadInitialData"
 }

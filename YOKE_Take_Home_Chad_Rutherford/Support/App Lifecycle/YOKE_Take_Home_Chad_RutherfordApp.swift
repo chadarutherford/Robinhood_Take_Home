@@ -14,6 +14,7 @@ struct YOKE_Take_Home_Chad_RutherfordApp: App {
     @StateObject var dataImporter: DataImporter
     @StateObject var dataController: DataController
 
+    // Default stock values that should be present on app launch.
     let stocksToImport = [
         "GME",
         "AAPL",
@@ -28,6 +29,9 @@ struct YOKE_Take_Home_Chad_RutherfordApp: App {
         let dataImporter = DataImporter(persistentContainer: dataController.container)
         _dataController = StateObject(wrappedValue: dataController)
         _dataImporter = StateObject(wrappedValue: dataImporter)
+
+        // The initial data fetch. If this is only the first launch, the network is used.
+        // After that, data is retrieved from CoreData to prevent network usage for the user.
         if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadInitialData) {
             dataImporter.fetchStocks(stockSymbols: stocksToImport)
             for stock in stocksToImport {
@@ -46,18 +50,6 @@ struct YOKE_Take_Home_Chad_RutherfordApp: App {
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(dataController)
                 .environmentObject(dataImporter)
-                .onReceive(
-                    NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
-                    perform: save
-                )
-        }
-    }
-
-    func save(_ note: Notification) {
-        do {
-            try dataController.save(context: dataController.mainContext)
-        } catch {
-            dataController.mainContext.reset()
         }
     }
 }

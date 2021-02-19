@@ -10,9 +10,12 @@ import Combine
 import Foundation
 
 class SearchViewModel: ObservableObject {
-
     var cancellables = Set<AnyCancellable>()
+
+    // The results of the search
     @Published var results = [SearchResult]()
+
+    // The text the user entered in the search bar
     @Published var stockSymbol = "" {
         didSet {
             if stockSymbol == "" {
@@ -23,8 +26,7 @@ class SearchViewModel: ObservableObject {
         }
     }
 
-
-
+    /// The fetch for the stock the user searched for
     func fetchStockSymbols() {
         guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)

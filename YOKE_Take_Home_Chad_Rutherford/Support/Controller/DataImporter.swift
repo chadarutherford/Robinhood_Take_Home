@@ -54,6 +54,9 @@ class DataImporter: ObservableObject {
         importContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
 
+
+    /// Method to fetch Stock Symbols for list view
+    /// - Parameter stockSymbols: The array of stock symbols to fetch
     func fetchStocks(stockSymbols: [String]) {
         for stock in stockSymbols {
             guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
@@ -64,6 +67,7 @@ class DataImporter: ObservableObject {
             components?.queryItems = [queryItem, keywordItem, apiKey]
             guard let url = components?.url else { return }
 
+            // Using Combine's power we fetch stocks from the server and immediately decode them into CoreData objects
             URLSession.shared.dataTaskPublisher(for: url)
                 .receive(on: DispatchQueue.main)
                 .map(\.data)
@@ -77,6 +81,7 @@ class DataImporter: ObservableObject {
                         do {
                             let results = try self.decoder.decode(StockResults.self, from: data)
                             let stock = results.results.first
+                            // Iterate through the objects and remove all but the one matching the symbol we searched for.
                             for result in results.results {
                                 if result.symbol != stock?.symbol {
                                     self.importContext.delete(result)
@@ -91,6 +96,11 @@ class DataImporter: ObservableObject {
         }
     }
 
+
+    /// Method to fetch Stock Values for Stock Viewer
+    /// - Parameters:
+    ///   - stock: The stock to attach the values to
+    ///   - type: The time series type to fetch values for
     func fetchTimeSeries(for stock: String, withType type: TimeSeriesType) {
         guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -102,6 +112,7 @@ class DataImporter: ObservableObject {
         guard let url = components?.url else { return }
 
         URLSession.shared.dataTaskPublisher(for: url)
+            .receive(on: DispatchQueue.main)
             .map(\.data)
             .sink { completion in
                 if case .failure(let error) = completion {
@@ -112,6 +123,7 @@ class DataImporter: ObservableObject {
                 self.decoder.userInfo[CodingUserInfoKey(rawValue: "dateFormat")!] = type.dateFormat
                 self.importContext.performAndWait {
                     do {
+                        // Conditionally perform only the search required and return only the values requested.
                         switch type {
                         case .intraday:
                             let results = try self.decoder.decode(TickerResults<Intraday>.self, from: data).timeSeries

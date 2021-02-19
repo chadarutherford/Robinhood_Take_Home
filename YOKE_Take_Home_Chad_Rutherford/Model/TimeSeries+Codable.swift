@@ -9,6 +9,9 @@
 import CoreData
 import Foundation
 
+/// NSManagedObject Classes for all of our TimeSeries classes.
+/// These objects get decoded and directly saved to CoreData
+
 class Intraday: NSManagedObject, Decodable {
 
     enum IntradayKeys: String, CodingKey {

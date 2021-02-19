@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Struct responsible for decoding Stocks the user has searched for.
 struct SearchResult: Codable, Identifiable {
     var id: String {
         return symbol
@@ -28,6 +30,7 @@ struct SearchResult: Codable, Identifiable {
     }
 }
 
+ /// Outer container responsible for decoding the array of Stock Symbols
 struct SearchResults: Codable {
     let results: [SearchResult]
 

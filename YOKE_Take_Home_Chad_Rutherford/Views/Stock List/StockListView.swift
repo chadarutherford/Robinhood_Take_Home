@@ -12,7 +12,6 @@ import SwiftUI
 
 struct StockListView: View {
     @EnvironmentObject var dataController: DataController
-    @EnvironmentObject var dataImporter: DataImporter
     @FetchRequest(
         entity: Stock.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Stock.symbol, ascending: true)])

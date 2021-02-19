@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Main object responsible for decoding Time Series Values.
 struct TickerResults<T>: Decodable where T: Decodable {
     let timeSeries: [(time: Date, info: T)]
 
@@ -19,6 +20,8 @@ struct TickerResults<T>: Decodable where T: Decodable {
     }
 
     init(from decoder: Decoder) throws {
+        // Check the root container for a key containing the words "Time Series",
+        // If the key is not present, an error occurred.
         let rootContainer = try decoder.container(keyedBy: DecoderKey.self)
         let timeKey = rootContainer.allKeys
             .first(where: { (key: DecoderKey) -> Bool in
@@ -28,6 +31,8 @@ struct TickerResults<T>: Decodable where T: Decodable {
             fatalError("Expected time series key in API. All keys = \(rootContainer.allKeys)")
         }
 
+        // Set up the container to decode a tuple of timestamped values. The time stamp being tuple value 1
+        // And the Time Series class being the value we are concerned with.
         let container = try rootContainer.nestedContainer(keyedBy: DecoderKey.self, forKey: key)
         var entries = [(time: Date, info: T)]()
 
