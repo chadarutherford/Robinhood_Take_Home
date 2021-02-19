@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIApplication {
+    /// Func required to end editing for the Search Text View
     func endEditing(_ force: Bool) {
         self.windows
             .filter { $0.isKeyWindow }

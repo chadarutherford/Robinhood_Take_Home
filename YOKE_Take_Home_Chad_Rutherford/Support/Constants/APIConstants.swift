@@ -9,5 +9,6 @@
 import Foundation
 
 enum APIConstants {
+    // API Key for the AlphaVantage Stocks API
     static let apiKey = "PJCCF54CH824NZ1Y"
 }

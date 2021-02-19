@@ -9,6 +9,8 @@
 import RHLinePlot
 import SwiftUI
 
+
+/// The Display Options for the Stock Viewer
 enum TimeSeriesDisplayOption {
     case oneDay
     case oneWeek

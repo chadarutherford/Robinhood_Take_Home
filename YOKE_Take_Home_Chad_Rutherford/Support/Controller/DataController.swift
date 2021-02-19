@@ -14,7 +14,9 @@ class DataController: ObservableObject {
     let container: NSPersistentContainer
 
     static let shared = DataController()
-    
+
+    // Initializer checks if in memory database is requested to prevent
+    // Unwanted changes to the data store.
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "StockRecords", managedObjectModel: Self.model)
 
@@ -30,6 +32,7 @@ class DataController: ObservableObject {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 
+    // The Model belonging to the NSPersistentContainer
     static let model: NSManagedObjectModel = {
         guard let url = Bundle.main.url(forResource: "StockRecords", withExtension: "momd") else {
             fatalError("Failed to locate model file.")
@@ -40,27 +43,13 @@ class DataController: ObservableObject {
         return managedObjectModel
     }()
 
+    // The viewContext. Should not save network objects in this context.
     var mainContext: NSManagedObjectContext {
         container.viewContext
     }
 
+    // A new background threaded context. Safe to save network objects in this context.
     func backgroundContext() -> NSManagedObjectContext {
         return container.newBackgroundContext()
-    }
-
-    func save(context: NSManagedObjectContext = DataController.shared.mainContext) throws {
-        var error: Error?
-
-        context.performAndWait {
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch let saveError {
-                    error = saveError
-                }
-            }
-        }
-
-        if let error = error { throw error }
     }
 }

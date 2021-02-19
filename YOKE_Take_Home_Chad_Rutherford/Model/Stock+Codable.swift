@@ -9,10 +9,13 @@
 import CoreData
 import Foundation
 
+/// The error we throw is we forget to inject the context into the Decoder.
 enum DecoderConfigurationError: Error {
     case missingManagedObjectContext
 }
 
+
+/// The outer container for the stocks fetched for CoreData
 struct StockResults: Decodable {
     let results: [Stock]
     
@@ -26,6 +29,8 @@ struct StockResults: Decodable {
     }
 }
 
+
+/// The class responsible for fetching and saving Stock data to CoreData
 class Stock: NSManagedObject, Decodable {
 
     enum StockKeys: String, CodingKey {
@@ -46,12 +51,14 @@ class Stock: NSManagedObject, Decodable {
     }
 }
 
+/// The managed object context gets passed into the NSManagedObject Decodable class with this key
 extension CodingUserInfoKey {
     static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")!
 }
 
 extension Stock {
 
+    // MARK: - Computed Properties for ease of use with CoreData and optionals
     var stockSymbol: String {
         symbol ?? ""
     }
