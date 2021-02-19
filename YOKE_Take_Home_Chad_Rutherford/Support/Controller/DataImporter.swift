@@ -157,24 +157,5 @@ class DataImporter: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-
-//        URLSession.shared.dataTask(with: url) { data, response, _ in
-//            guard let data = data else { return }
-//            let decoder = JSONDecoder()
-//            decoder.userInfo[CodingUserInfoKey(rawValue: "dateFormat")!] = type.dateFormat
-//            do {
-//                var results: TickerResults
-//                switch type {
-//                case .intraday:
-//                    let results = try decoder.decode(TickerResults<Intraday>.self, from: data)
-//                default:
-//                    break
-//                }
-//            } catch {
-//                print(error)
-//            }
-//        }
-//        .resume()
     }
-
 }

@@ -26,6 +26,8 @@ struct StockRowView: View {
                 Text(stock.stockName)
                     .font(.callout)
                     .foregroundColor(.secondary)
+                    .frame(width: 80, alignment: .leading)
+                    .lineLimit(1)
             }
 
             Spacer()

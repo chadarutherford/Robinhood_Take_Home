@@ -9,26 +9,51 @@
 import RHLinePlot
 import SwiftUI
 
+enum TimeSeriesDisplayOption {
+    case oneDay
+    case oneWeek
+    case oneMonth
+    case oneYear
+    case fiveYears
+}
+
 struct StockViewerView: View {
 
     let stock: Stock
+    @State var timeSeriesDisplayOption: TimeSeriesDisplayOption = .oneDay
     var values: [CGFloat] {
-        stock.rowTickerValues.map { CGFloat($0.close) }
+        switch timeSeriesDisplayOption {
+        case .oneDay:
+            return stock.rowTickerValues.map { CGFloat($0.close) }
+        case .oneWeek:
+            return stock.weeklyValues.map { CGFloat($0.close) }
+        case .oneMonth:
+            return stock.monthlyValues.map { CGFloat($0.close) }
+        case .oneYear:
+            return stock.oneYearValues.map { CGFloat($0.close) }
+        case .fiveYears:
+            return stock.fiveYearValues.map { CGFloat($0.close) }
+        }
     }
 
     var segments: [Int] {
         Array(0 ..< values.count)
     }
     var body: some View {
+        VStack(alignment: .leading) {
+            StockViewerHeader(stock: stock)
+            
+            RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.9, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
 
-        RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.9, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
+            } customLatestValueIndicator: {
+                AnyView(GlowingIndicator())
+            } valueStickLabel: { value in
+                valueStickLabel(value)
+            }
 
-        } customLatestValueIndicator: {
-            AnyView(GlowingIndicator())
-        } valueStickLabel: { value in
-            valueStickLabel(value)
+            StockViewerButtonRowView(timeSeriesDisplayOption: $timeSeriesDisplayOption)
         }
-        .foregroundColor(stock.isUp ? Color.green : Color.red)
+        .padding(.horizontal, 10)
     }
 
     func valueStickLabel(_ value: CGFloat) -> some View {
