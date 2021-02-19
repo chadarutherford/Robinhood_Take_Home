@@ -9,6 +9,5 @@
 import Foundation
 
 enum UserDefaultsKeys {
-    static let didDownloadStockSymbols = "didDownloadInitialData"
-    static let didDownloadTimeSeries = "didDownloadTimeSeries"
+    static let didDownloadInitialData = "didDownloadInitialData"
 }
