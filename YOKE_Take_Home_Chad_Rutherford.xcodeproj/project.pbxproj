@@ -13,7 +13,7 @@
 		637834B325DB0BA30018A87C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834B225DB0BA30018A87C /* DataController.swift */; };
 		637834BB25DB1A7D0018A87C /* StockViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834BA25DB1A7D0018A87C /* StockViewerView.swift */; };
 		63C5AC6C25DC341C00A42847 /* StockRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC6B25DC341C00A42847 /* StockRowView.swift */; };
-		63C5AC6F25DC36F100A42847 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC6E25DC36F100A42847 /* NetworkHandler.swift */; };
+		63C5AC6F25DC36F100A42847 /* DataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC6E25DC36F100A42847 /* DataImporter.swift */; };
 		63C5AC8125DC787D00A42847 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC8025DC787D00A42847 /* UserDefaultsKeys.swift */; };
 		63F4A7D225D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A7D125D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift */; };
 		63F4A7D625D5AF47003CE6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F4A7D525D5AF47003CE6CC /* Assets.xcassets */; };
@@ -33,7 +33,7 @@
 		637834B225DB0BA30018A87C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		637834BA25DB1A7D0018A87C /* StockViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewerView.swift; sourceTree = "<group>"; };
 		63C5AC6B25DC341C00A42847 /* StockRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRowView.swift; sourceTree = "<group>"; };
-		63C5AC6E25DC36F100A42847 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		63C5AC6E25DC36F100A42847 /* DataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImporter.swift; sourceTree = "<group>"; };
 		63C5AC8025DC787D00A42847 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		63F4A7CE25D5AF44003CE6CC /* YOKE_Take_Home_Chad_Rutherford.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YOKE_Take_Home_Chad_Rutherford.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F4A7D125D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOKE_Take_Home_Chad_RutherfordApp.swift; sourceTree = "<group>"; };
@@ -62,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63748B5825DFEF1700C85990 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				63F4A7F325D5E3AE003CE6CC /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		637834A525DAF5130018A87C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				637834B225DB0BA30018A87C /* DataController.swift */,
-				63C5AC6E25DC36F100A42847 /* NetworkHandler.swift */,
+				63C5AC6E25DC36F100A42847 /* DataImporter.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,7 +173,7 @@
 		63F4A7FA25D5E40D003CE6CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				63F4A7F325D5E3AE003CE6CC /* MainTabView.swift */,
+				63748B5825DFEF1700C85990 /* Main */,
 				63F4A7FC25D5E41E003CE6CC /* Stock List */,
 				63F4A7FB25D5E418003CE6CC /* Search */,
 				637834BD25DB1A860018A87C /* StockViewer */,
@@ -337,7 +345,7 @@
 			files = (
 				63F4A80225D5E4C3003CE6CC /* SearchView.swift in Sources */,
 				63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */,
-				63C5AC6F25DC36F100A42847 /* NetworkHandler.swift in Sources */,
+				63C5AC6F25DC36F100A42847 /* DataImporter.swift in Sources */,
 				63C5AC8125DC787D00A42847 /* UserDefaultsKeys.swift in Sources */,
 				63F4A7FF25D5E484003CE6CC /* StockListView.swift in Sources */,
 				63F4A80A25D5EE37003CE6CC /* SearchBar.swift in Sources */,
