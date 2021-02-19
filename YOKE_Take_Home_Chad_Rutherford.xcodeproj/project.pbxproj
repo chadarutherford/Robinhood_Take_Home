@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		632C4DD825E01ED700D131AF /* StockViewerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C4DD725E01ED700D131AF /* StockViewerHeader.swift */; };
 		63596CEA25DF545000B8EABF /* Stock+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63596CE925DF545000B8EABF /* Stock+Codable.swift */; };
 		63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63596D1925DF568300B8EABF /* StockRecords.xcdatamodeld */; };
 		63748B5D25DFF40A00C85990 /* StockTickerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63748B5C25DFF40A00C85990 /* StockTickerResults.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		632C4DD725E01ED700D131AF /* StockViewerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewerHeader.swift; sourceTree = "<group>"; };
 		63596CE925DF545000B8EABF /* Stock+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+Codable.swift"; sourceTree = "<group>"; };
 		63596D1A25DF568300B8EABF /* StockRecords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockRecords.xcdatamodel; sourceTree = "<group>"; };
 		63748B5C25DFF40A00C85990 /* StockTickerResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerResults.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				637834BA25DB1A7D0018A87C /* StockViewerView.swift */,
+				632C4DD725E01ED700D131AF /* StockViewerHeader.swift */,
 			);
 			path = StockViewer;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				637834B325DB0BA30018A87C /* DataController.swift in Sources */,
 				63596CEA25DF545000B8EABF /* Stock+Codable.swift in Sources */,
 				637834AB25DAFDCA0018A87C /* APIConstants.swift in Sources */,
+				632C4DD825E01ED700D131AF /* StockViewerHeader.swift in Sources */,
 				63F4A7F425D5E3AE003CE6CC /* MainTabView.swift in Sources */,
 				63C5AC6C25DC341C00A42847 /* StockRowView.swift in Sources */,
 				63F4A7D225D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift in Sources */,

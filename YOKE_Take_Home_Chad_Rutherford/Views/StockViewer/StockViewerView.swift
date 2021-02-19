@@ -20,15 +20,19 @@ struct StockViewerView: View {
         Array(0 ..< values.count)
     }
     var body: some View {
+        VStack(alignment: .leading) {
+            StockViewerHeader(stock: stock)
+            
+            RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.9, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
 
-        RHInteractiveLinePlot(values: values, occupyingRelativeWidth: 0.9, showGlowingIndicator: true, lineSegmentStartingIndices: segments) { index in
-
-        } customLatestValueIndicator: {
-            AnyView(GlowingIndicator())
-        } valueStickLabel: { value in
-            valueStickLabel(value)
+            } customLatestValueIndicator: {
+                AnyView(GlowingIndicator())
+            } valueStickLabel: { value in
+                valueStickLabel(value)
+            }
+            .foregroundColor(stock.isUp ? Color.green : Color.red)
         }
-        .foregroundColor(stock.isUp ? Color.green : Color.red)
+        .padding(.horizontal, 10)
     }
 
     func valueStickLabel(_ value: CGFloat) -> some View {
