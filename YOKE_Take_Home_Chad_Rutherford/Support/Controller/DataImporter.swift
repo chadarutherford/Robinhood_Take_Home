@@ -39,7 +39,7 @@ enum TimeSeriesType {
     }
 }
 
-class DataImporter {
+class DataImporter: ObservableObject {
     let importContext: NSManagedObjectContext
     var cancellables = Set<AnyCancellable>()
 
@@ -65,6 +65,7 @@ class DataImporter {
             guard let url = components?.url else { return }
 
             URLSession.shared.dataTaskPublisher(for: url)
+                .receive(on: DispatchQueue.main)
                 .map(\.data)
                 .sink { completion in
                     if case .failure(let error) = completion {
@@ -72,7 +73,7 @@ class DataImporter {
                     }
                 } receiveValue: { [weak self] data in
                     guard let self = self else { return }
-                    self.importContext.perform {
+                    self.importContext.performAndWait {
                         do {
                             let results = try self.decoder.decode(StockResults.self, from: data)
                             let stock = results.results.first
@@ -80,11 +81,6 @@ class DataImporter {
                                 if result.symbol != stock?.symbol {
                                     self.importContext.delete(result)
                                 }
-                            }
-                            do {
-                                try self.importContext.save()
-                            } catch {
-                                print("Someting went wrong: \(error)")
                             }
                         } catch {
                             print("Failed to decode JSON: \(error)")
@@ -95,98 +91,90 @@ class DataImporter {
         }
     }
 
-    //    func fetchTimeSeries(for stock: Stock, with type: TimeSeriesType) {
-    //        guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
-    //        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-    //        let queryItem = URLQueryItem(name: "function", value: type.function)
-    //        let keywordItem = URLQueryItem(name: "symbol", value: stock.symbol)
-    //        let intervalItem = URLQueryItem(name: "interval", value: "5min")
-    //        let apiKey = URLQueryItem(name: "apikey", value: APIConstants.apiKey)
-    //        components?.queryItems = [queryItem, keywordItem, intervalItem, apiKey]
-    //        guard let url = components?.url else { return }
-    //
-    //        URLSession.shared.dataTask(with: url) { data, response, _ in
-    //            guard let data = data else { return }
-    //            let decoder = JSONDecoder()
-    //            decoder.userInfo[CodingUserInfoKey(rawValue: "dateFormat")!] = type.dateFormat
-    //            do {
-    //                let results = try decoder.decode(TickerResults.self, from: data)
-    //                DispatchQueue.main.async {
-    //                    for entry in results.timeSeries {
-    //                        switch type {
-    //                        case .intraday:
-    //                            self.saveToCoreData(stock: stock, entry: entry, type: .intraday)
-    //                        case .daily:
-    //                            self.saveToCoreData(stock: stock, entry: entry, type: .daily)
-    //                        case .weekly:
-    //                            self.saveToCoreData(stock: stock, entry: entry, type: .weekly)
-    //                        case .monthly:
-    //                            self.saveToCoreData(stock: stock, entry: entry, type: .monthly)
-    //                        }
-    //                    }
-    //                }
-    //
-    //            } catch {
-    //                print(error)
-    //            }
-    //        }
-    //        .resume()
-    //    }
+    func fetchTimeSeries(for stock: String, withType type: TimeSeriesType) {
+        guard let baseURL = URL(string: "https://www.alphavantage.co/")?.appendingPathComponent("query") else { return }
+        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let queryItem = URLQueryItem(name: "function", value: type.function)
+        let keywordItem = URLQueryItem(name: "symbol", value: stock)
+        let intervalItem = URLQueryItem(name: "interval", value: "5min")
+        let apiKey = URLQueryItem(name: "apikey", value: APIConstants.apiKey)
+        components?.queryItems = [queryItem, keywordItem, intervalItem, apiKey]
+        guard let url = components?.url else { return }
 
-    //    func saveToCoreData(stock: StockData, entry: (time: Date, info: TimeEntry), type: TimeSeriesType) {
-    //        switch type {
-    //        case .intraday:
-    //            let intradayResult = Intraday(open: entry.info.open, close: entry.info.close)
-    //            if let cdStock = stock as? Stock {
-    //                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-    //                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
-    //                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
-    //                intradayResult.stock = stockToUpdate?.first
-    //                do {
-    //                    try DataController.shared.save()
-    //                } catch {
-    //                    fatalError("Unable to save results")
-    //                }
-    //            }
-    //        case .daily:
-    //            let dailyResult = Daily(open: entry.info.open, close: entry.info.close)
-    //            if let cdStock = stock as? Stock {
-    //                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-    //                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
-    //                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
-    //                dailyResult.stock = stockToUpdate?.first
-    //                do {
-    //                    try DataController.shared.save()
-    //                } catch {
-    //                    fatalError("Unable to save results")
-    //                }
-    //            }
-    //        case .weekly:
-    //            let weeklyResult = Weekly(open: entry.info.open, close: entry.info.close)
-    //            if let cdStock = stock as? Stock {
-    //                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-    //                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
-    //                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
-    //                weeklyResult.stock = stockToUpdate?.first
-    //                do {
-    //                    try DataController.shared.save()
-    //                } catch {
-    //                    fatalError("Unable to save results")
-    //                }
-    //            }
-    //        case .monthly:
-    //            let monthlyResult = Monthly(open: entry.info.open, close: entry.info.close)
-    //            if let cdStock = stock as? Stock {
-    //                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
-    //                fetchRequest.predicate = NSPredicate(format: "symbol == %@", cdStock.stockSymbol)
-    //                let stockToUpdate = try? DataController.shared.mainContext.fetch(fetchRequest)
-    //                monthlyResult.stock = stockToUpdate?.first
-    //                do {
-    //                    try DataController.shared.save()
-    //                } catch {
-    //                    fatalError("Unable to save results")
-    //                }
-    //            }
-    //        }
-    //    }
+        URLSession.shared.dataTaskPublisher(for: url)
+            .map(\.data)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print("Something went wrong: \(error)")
+                }
+            } receiveValue: { [weak self] data in
+                guard let self = self else { return }
+                self.decoder.userInfo[CodingUserInfoKey(rawValue: "dateFormat")!] = type.dateFormat
+                self.importContext.performAndWait {
+                    do {
+                        switch type {
+                        case .intraday:
+                            let results = try self.decoder.decode(TickerResults<Intraday>.self, from: data).timeSeries
+                            for entry in results {
+                                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                                fetchRequest.predicate = NSPredicate(format: "symbol == %@", stock)
+                                let stockToUpdate = try? self.importContext.fetch(fetchRequest)
+                                entry.info.stock = stockToUpdate?.first
+                            }
+                        case .daily:
+                            let results = try self.decoder.decode(TickerResults<Daily>.self, from: data).timeSeries
+                            for entry in results {
+                                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                                fetchRequest.predicate = NSPredicate(format: "symbol == %@", stock)
+                                let stockToUpdate = try? self.importContext.fetch(fetchRequest)
+                                entry.info.stock = stockToUpdate?.first
+                            }
+                        case .weekly:
+                            let results = try self.decoder.decode(TickerResults<Weekly>.self, from: data).timeSeries
+                            for entry in results {
+                                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                                fetchRequest.predicate = NSPredicate(format: "symbol == %@", stock)
+                                let stockToUpdate = try? self.importContext.fetch(fetchRequest)
+                                entry.info.stock = stockToUpdate?.first
+                            }
+                        case .monthly:
+                            let results = try self.decoder.decode(TickerResults<Monthly>.self, from: data).timeSeries
+                            for entry in results {
+                                let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
+                                fetchRequest.predicate = NSPredicate(format: "symbol == %@", stock)
+                                let stockToUpdate = try? self.importContext.fetch(fetchRequest)
+                                entry.info.stock = stockToUpdate?.first
+                            }
+                        }
+                        do {
+                            try self.importContext.save()
+                        } catch {
+                            print("Someting went wrong: \(error)")
+                        }
+                    } catch {
+                        print("Failed to decode JSON: \(error)")
+                    }
+                }
+            }
+            .store(in: &cancellables)
+
+//        URLSession.shared.dataTask(with: url) { data, response, _ in
+//            guard let data = data else { return }
+//            let decoder = JSONDecoder()
+//            decoder.userInfo[CodingUserInfoKey(rawValue: "dateFormat")!] = type.dateFormat
+//            do {
+//                var results: TickerResults
+//                switch type {
+//                case .intraday:
+//                    let results = try decoder.decode(TickerResults<Intraday>.self, from: data)
+//                default:
+//                    break
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        .resume()
+    }
+
 }

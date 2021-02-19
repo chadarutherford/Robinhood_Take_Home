@@ -60,6 +60,28 @@ extension Stock {
         name ?? ""
     }
 
+    var firstValue: Intraday? {
+        intradayValues.first
+    }
+
+    var intradayValues: [Intraday] {
+        intraday?.allObjects as? [Intraday] ?? []
+    }
+
+    var rowTickerValues: [Intraday] {
+        if !intradayValues.isEmpty {
+            let sliceArray = intradayValues[0 ..< 7]
+            return Array(sliceArray)
+        } else {
+            return []
+        }
+    }
+
+    var isUp: Bool {
+        guard intradayValues.count >= 2 else { return false }
+        return intradayValues[0].close - intradayValues[1].close >= 0
+    }
+
     static var example: Stock {
         let dataController = DataController(inMemory: true)
         let viewContext = dataController.container.viewContext

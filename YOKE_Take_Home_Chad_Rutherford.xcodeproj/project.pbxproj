@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		63596CEA25DF545000B8EABF /* Stock+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63596CE925DF545000B8EABF /* Stock+Codable.swift */; };
 		63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63596D1925DF568300B8EABF /* StockRecords.xcdatamodeld */; };
+		63748B5D25DFF40A00C85990 /* StockTickerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63748B5C25DFF40A00C85990 /* StockTickerResults.swift */; };
+		63748B6025DFF6DF00C85990 /* TimeSeries+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63748B5F25DFF6DF00C85990 /* TimeSeries+Codable.swift */; };
 		637834AB25DAFDCA0018A87C /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834AA25DAFDCA0018A87C /* APIConstants.swift */; };
 		637834B325DB0BA30018A87C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834B225DB0BA30018A87C /* DataController.swift */; };
 		637834BB25DB1A7D0018A87C /* StockViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834BA25DB1A7D0018A87C /* StockViewerView.swift */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		63596CE925DF545000B8EABF /* Stock+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+Codable.swift"; sourceTree = "<group>"; };
 		63596D1A25DF568300B8EABF /* StockRecords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockRecords.xcdatamodel; sourceTree = "<group>"; };
+		63748B5C25DFF40A00C85990 /* StockTickerResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerResults.swift; sourceTree = "<group>"; };
+		63748B5F25DFF6DF00C85990 /* TimeSeries+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeSeries+Codable.swift"; sourceTree = "<group>"; };
 		637834AA25DAFDCA0018A87C /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		637834B225DB0BA30018A87C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		637834BA25DB1A7D0018A87C /* StockViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewerView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				63596CE925DF545000B8EABF /* Stock+Codable.swift */,
+				63748B5C25DFF40A00C85990 /* StockTickerResults.swift */,
+				63748B5F25DFF6DF00C85990 /* TimeSeries+Codable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 			files = (
 				63F4A80225D5E4C3003CE6CC /* SearchView.swift in Sources */,
 				63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */,
+				63748B6025DFF6DF00C85990 /* TimeSeries+Codable.swift in Sources */,
 				63C5AC6F25DC36F100A42847 /* DataImporter.swift in Sources */,
 				63C5AC8125DC787D00A42847 /* UserDefaultsKeys.swift in Sources */,
 				63F4A7FF25D5E484003CE6CC /* StockListView.swift in Sources */,
@@ -357,6 +364,7 @@
 				63C5AC6C25DC341C00A42847 /* StockRowView.swift in Sources */,
 				63F4A7D225D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift in Sources */,
 				63F4A80E25D5F620003CE6CC /* UIApplication+EndEditing.swift in Sources */,
+				63748B5D25DFF40A00C85990 /* StockTickerResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

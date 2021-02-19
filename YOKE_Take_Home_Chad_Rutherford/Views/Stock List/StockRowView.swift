@@ -11,10 +11,10 @@ import SwiftUI
 
 struct StockRowView: View {
 
-    @State var stock: Stock
-//    var values: [CGFloat] {
-//        stockData.rowTickerValues.map { CGFloat($0.intraClose) }
-//    }
+    let stock: Stock
+    var values: [CGFloat] {
+        stock.rowTickerValues.map { CGFloat($0.close) }
+    }
 
     var body: some View {
         HStack {
@@ -29,20 +29,21 @@ struct StockRowView: View {
             }
 
             Spacer()
-//            if !stockData.rowTickerValues.isEmpty {
-//                RHLinePlot(values: values)
-//                    .frame(width: 80, height: 40, alignment: .center)
-//            }
+            if !stock.rowTickerValues.isEmpty {
+                RHLinePlot(values: values)
+                    .frame(width: 80, height: 40, alignment: .center)
+                    .foregroundColor(stock.isUp ? Color.green : Color.red)
+            }
             Spacer()
 
-//            if !stockData.intradayValues.isEmpty {
-//                Text("$\(String(format: "%.2f", stockData.firstValue.intraClose))")
-//                    .foregroundColor(Color(.systemBackground))
-//                    .padding(.vertical, 9)
-//                    .padding(.horizontal, 10)
-//                    .background(stockData.isUp ? Color.green : Color.red)
-//                    .cornerRadius(8)
-//            }
+            if !stock.intradayValues.isEmpty, let firstValue = stock.firstValue {
+                Text("$\(String(format: "%.2f", firstValue.close))")
+                    .foregroundColor(Color(.systemBackground))
+                    .padding(.vertical, 9)
+                    .padding(.horizontal, 10)
+                    .background(stock.isUp ? Color.green : Color.red)
+                    .cornerRadius(8)
+            }
         }
     }
 }

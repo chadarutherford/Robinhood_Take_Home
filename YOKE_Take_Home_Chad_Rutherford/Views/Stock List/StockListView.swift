@@ -12,18 +12,18 @@ import SwiftUI
 
 struct StockListView: View {
     @EnvironmentObject var dataController: DataController
+    @EnvironmentObject var dataImporter: DataImporter
     @FetchRequest(
         entity: Stock.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Stock.symbol, ascending: true)])
     var stocks: FetchedResults<Stock>
-    let didSave = NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(stocks) { stock in
                     NavigationLink(
-                        destination: Text("Destination"),
+                        destination: StockViewerView(stock: stock),
                         label: {
                             StockRowView(stock: stock)
                         })
