@@ -28,12 +28,15 @@ struct YOKE_Take_Home_Chad_RutherfordApp: App {
         let dataImporter = DataImporter(persistentContainer: dataController.container)
         _dataController = StateObject(wrappedValue: dataController)
         _dataImporter = StateObject(wrappedValue: dataImporter)
-        dataImporter.fetchStocks(stockSymbols: stocksToImport)
-        for stock in stocksToImport {
-            dataImporter.fetchTimeSeries(for: stock, withType: .intraday)
-            dataImporter.fetchTimeSeries(for: stock, withType: .daily)
-            dataImporter.fetchTimeSeries(for: stock, withType: .weekly)
-            dataImporter.fetchTimeSeries(for: stock, withType: .monthly)
+        if !UserDefaults.standard.bool(forKey: UserDefaultsKeys.didDownloadInitialData) {
+            dataImporter.fetchStocks(stockSymbols: stocksToImport)
+            for stock in stocksToImport {
+                dataImporter.fetchTimeSeries(for: stock, withType: .intraday)
+                dataImporter.fetchTimeSeries(for: stock, withType: .daily)
+                dataImporter.fetchTimeSeries(for: stock, withType: .weekly)
+                dataImporter.fetchTimeSeries(for: stock, withType: .monthly)
+            }
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.didDownloadInitialData)
         }
     }
 

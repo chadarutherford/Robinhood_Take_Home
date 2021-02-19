@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		632C4DD825E01ED700D131AF /* StockViewerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C4DD725E01ED700D131AF /* StockViewerHeader.swift */; };
 		632C4DE125E027A300D131AF /* StockViewerButtonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C4DE025E027A300D131AF /* StockViewerButtonRowView.swift */; };
+		632C4DED25E029B800D131AF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C4DEC25E029B800D131AF /* SearchViewModel.swift */; };
+		632C4DF025E02A6000D131AF /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C4DEF25E02A6000D131AF /* SearchResult.swift */; };
+		63422D6525E03057001A0105 /* SearchRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63422D6425E03057001A0105 /* SearchRowView.swift */; };
 		63596CEA25DF545000B8EABF /* Stock+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63596CE925DF545000B8EABF /* Stock+Codable.swift */; };
 		63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63596D1925DF568300B8EABF /* StockRecords.xcdatamodeld */; };
 		63748B5D25DFF40A00C85990 /* StockTickerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63748B5C25DFF40A00C85990 /* StockTickerResults.swift */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		632C4DD725E01ED700D131AF /* StockViewerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewerHeader.swift; sourceTree = "<group>"; };
 		632C4DE025E027A300D131AF /* StockViewerButtonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewerButtonRowView.swift; sourceTree = "<group>"; };
+		632C4DEC25E029B800D131AF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		632C4DEF25E02A6000D131AF /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		63422D6425E03057001A0105 /* SearchRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRowView.swift; sourceTree = "<group>"; };
 		63596CE925DF545000B8EABF /* Stock+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+Codable.swift"; sourceTree = "<group>"; };
 		63596D1A25DF568300B8EABF /* StockRecords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockRecords.xcdatamodel; sourceTree = "<group>"; };
 		63748B5C25DFF40A00C85990 /* StockTickerResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerResults.swift; sourceTree = "<group>"; };
@@ -70,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		632C4DEB25E029A900D131AF /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				632C4DEC25E029B800D131AF /* SearchViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		63748B5825DFEF1700C85990 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +98,7 @@
 				63596CE925DF545000B8EABF /* Stock+Codable.swift */,
 				63748B5C25DFF40A00C85990 /* StockTickerResults.swift */,
 				63748B5F25DFF6DF00C85990 /* TimeSeries+Codable.swift */,
+				632C4DEF25E02A6000D131AF /* SearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +161,7 @@
 			children = (
 				637834A525DAF5130018A87C /* Model */,
 				63F4A7FA25D5E40D003CE6CC /* Views */,
+				632C4DEB25E029A900D131AF /* View Model */,
 				63F4A7F625D5E3CE003CE6CC /* Support */,
 			);
 			path = YOKE_Take_Home_Chad_Rutherford;
@@ -198,6 +214,7 @@
 			children = (
 				63F4A80125D5E4C3003CE6CC /* SearchView.swift */,
 				63F4A80925D5EE37003CE6CC /* SearchBar.swift */,
+				63422D6425E03057001A0105 /* SearchRowView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -357,8 +374,11 @@
 			files = (
 				63F4A80225D5E4C3003CE6CC /* SearchView.swift in Sources */,
 				63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */,
+				63422D6525E03057001A0105 /* SearchRowView.swift in Sources */,
+				632C4DF025E02A6000D131AF /* SearchResult.swift in Sources */,
 				63748B6025DFF6DF00C85990 /* TimeSeries+Codable.swift in Sources */,
 				63C5AC6F25DC36F100A42847 /* DataImporter.swift in Sources */,
+				632C4DED25E029B800D131AF /* SearchViewModel.swift in Sources */,
 				63C5AC8125DC787D00A42847 /* UserDefaultsKeys.swift in Sources */,
 				63F4A7FF25D5E484003CE6CC /* StockListView.swift in Sources */,
 				63F4A80A25D5EE37003CE6CC /* SearchBar.swift in Sources */,

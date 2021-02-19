@@ -44,25 +44,3 @@ struct TickerResults<T>: Decodable where T: Decodable {
         self.timeSeries = entries.sorted(by: { $0.time < $1.time })
     }
 }
-
-//struct TimeEntry: Codable {
-//    let open: Double
-//    let close: Double
-//
-//    enum TimeEntryKeys: String, CodingKey {
-//        case open = "1. open"
-//        case close = "4. close"
-//    }
-//
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: TimeEntryKeys.self)
-//        guard let open = Double(try container.decode(String.self, forKey: .open)) else {
-//            throw DecodingError.dataCorruptedError(forKey: TimeEntryKeys.open, in: container, debugDescription: "Open should be converted to a Double")
-//        }
-//        guard let close = Double(try container.decode(String.self, forKey: .close)) else {
-//            throw DecodingError.dataCorruptedError(forKey: TimeEntryKeys.close, in: container, debugDescription: "Close should be converted to a Double")
-//        }
-//        self.open = open
-//        self.close = close
-//    }
-//}
