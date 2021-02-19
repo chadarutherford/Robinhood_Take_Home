@@ -75,7 +75,12 @@ class DataImporter {
                     self.importContext.perform {
                         do {
                             let results = try self.decoder.decode(StockResults.self, from: data)
-                            let _ = results.results.first
+                            let stock = results.results.first
+                            for result in results.results {
+                                if result.symbol != stock?.symbol {
+                                    self.importContext.delete(result)
+                                }
+                            }
                             do {
                                 try self.importContext.save()
                             } catch {
