@@ -11,44 +11,44 @@ import SwiftUI
 
 struct StockRowView: View {
 
-    @State var stockData: StockData
-    var values: [CGFloat] {
-        stockData.rowTickerValues.map { CGFloat($0.intraClose) }
-    }
+    @State var stock: Stock
+//    var values: [CGFloat] {
+//        stockData.rowTickerValues.map { CGFloat($0.intraClose) }
+//    }
 
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text(stockData.stockSymbol)
+                Text(stock.stockSymbol)
                     .font(.body)
                     .fontWeight(.semibold)
 
-                Text(stockData.stockName)
+                Text(stock.stockName)
                     .font(.callout)
                     .foregroundColor(.secondary)
             }
 
             Spacer()
-            if !stockData.rowTickerValues.isEmpty {
-                RHLinePlot(values: values)
-                    .frame(width: 80, height: 40, alignment: .center)
-            }
+//            if !stockData.rowTickerValues.isEmpty {
+//                RHLinePlot(values: values)
+//                    .frame(width: 80, height: 40, alignment: .center)
+//            }
             Spacer()
 
-            if !stockData.intradayValues.isEmpty {
-                Text("$\(String(format: "%.2f", stockData.firstValue.intraClose))")
-                    .foregroundColor(Color(.systemBackground))
-                    .padding(.vertical, 9)
-                    .padding(.horizontal, 10)
-                    .background(stockData.isUp ? Color.green : Color.red)
-                    .cornerRadius(8)
-            }
+//            if !stockData.intradayValues.isEmpty {
+//                Text("$\(String(format: "%.2f", stockData.firstValue.intraClose))")
+//                    .foregroundColor(Color(.systemBackground))
+//                    .padding(.vertical, 9)
+//                    .padding(.horizontal, 10)
+//                    .background(stockData.isUp ? Color.green : Color.red)
+//                    .cornerRadius(8)
+//            }
         }
     }
 }
 
 struct StockRowView_Previews: PreviewProvider {
     static var previews: some View {
-        StockRowView(stockData: Stock.example)
+        StockRowView(stock: Stock.example)
     }
 }

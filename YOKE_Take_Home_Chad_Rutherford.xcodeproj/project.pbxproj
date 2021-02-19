@@ -3,23 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6378349F25DAF3DE0018A87C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378349E25DAF3DE0018A87C /* SearchViewModel.swift */; };
-		637834A325DAF4FF0018A87C /* CRNetworkingManager in Frameworks */ = {isa = PBXBuildFile; productRef = 637834A225DAF4FF0018A87C /* CRNetworkingManager */; };
-		637834A725DAF9540018A87C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834A625DAF9540018A87C /* SearchResult.swift */; };
+		63596CEA25DF545000B8EABF /* Stock+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63596CE925DF545000B8EABF /* Stock+Codable.swift */; };
+		63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63596D1925DF568300B8EABF /* StockRecords.xcdatamodeld */; };
 		637834AB25DAFDCA0018A87C /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834AA25DAFDCA0018A87C /* APIConstants.swift */; };
 		637834B325DB0BA30018A87C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834B225DB0BA30018A87C /* DataController.swift */; };
-		637834B825DB0D8E0018A87C /* StockRecords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 637834B625DB0D8E0018A87C /* StockRecords.xcdatamodeld */; };
 		637834BB25DB1A7D0018A87C /* StockViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834BA25DB1A7D0018A87C /* StockViewerView.swift */; };
-		637834C325DB1B840018A87C /* StocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637834C225DB1B840018A87C /* StocksViewModel.swift */; };
-		63C5AC6925DC21CC00A42847 /* Stock+Representation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC6825DC21CC00A42847 /* Stock+Representation.swift */; };
 		63C5AC6C25DC341C00A42847 /* StockRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC6B25DC341C00A42847 /* StockRowView.swift */; };
 		63C5AC6F25DC36F100A42847 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC6E25DC36F100A42847 /* NetworkHandler.swift */; };
-		63C5AC7B25DC4E3600A42847 /* Intraday+Representation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC7A25DC4E3600A42847 /* Intraday+Representation.swift */; };
-		63C5AC7E25DC4F3B00A42847 /* StockTickerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC7D25DC4F3B00A42847 /* StockTickerResults.swift */; };
 		63C5AC8125DC787D00A42847 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5AC8025DC787D00A42847 /* UserDefaultsKeys.swift */; };
 		63F4A7D225D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4A7D125D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift */; };
 		63F4A7D625D5AF47003CE6CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F4A7D525D5AF47003CE6CC /* Assets.xcassets */; };
@@ -33,18 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6378349E25DAF3DE0018A87C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		637834A625DAF9540018A87C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		63596CE925DF545000B8EABF /* Stock+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+Codable.swift"; sourceTree = "<group>"; };
+		63596D1A25DF568300B8EABF /* StockRecords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockRecords.xcdatamodel; sourceTree = "<group>"; };
 		637834AA25DAFDCA0018A87C /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		637834B225DB0BA30018A87C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		637834B725DB0D8E0018A87C /* StockRecords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockRecords.xcdatamodel; sourceTree = "<group>"; };
 		637834BA25DB1A7D0018A87C /* StockViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewerView.swift; sourceTree = "<group>"; };
-		637834C225DB1B840018A87C /* StocksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksViewModel.swift; sourceTree = "<group>"; };
-		63C5AC6825DC21CC00A42847 /* Stock+Representation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stock+Representation.swift"; sourceTree = "<group>"; };
 		63C5AC6B25DC341C00A42847 /* StockRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRowView.swift; sourceTree = "<group>"; };
 		63C5AC6E25DC36F100A42847 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
-		63C5AC7A25DC4E3600A42847 /* Intraday+Representation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intraday+Representation.swift"; sourceTree = "<group>"; };
-		63C5AC7D25DC4F3B00A42847 /* StockTickerResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTickerResults.swift; sourceTree = "<group>"; };
 		63C5AC8025DC787D00A42847 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		63F4A7CE25D5AF44003CE6CC /* YOKE_Take_Home_Chad_Rutherford.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YOKE_Take_Home_Chad_Rutherford.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F4A7D125D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOKE_Take_Home_Chad_RutherfordApp.swift; sourceTree = "<group>"; };
@@ -67,29 +56,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				766B7823E0EDA41DD0926AE4 /* Pods_YOKE_Take_Home_Chad_Rutherford.framework in Frameworks */,
-				637834A325DAF4FF0018A87C /* CRNetworkingManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6378349D25DAF3CE0018A87C /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				637834C125DB1B700018A87C /* SearchViewModel */,
-				637834C025DB1B640018A87C /* StocksViewModel */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		637834A525DAF5130018A87C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				637834A625DAF9540018A87C /* SearchResult.swift */,
-				63C5AC6825DC21CC00A42847 /* Stock+Representation.swift */,
-				63C5AC7A25DC4E3600A42847 /* Intraday+Representation.swift */,
-				63C5AC7D25DC4F3B00A42847 /* StockTickerResults.swift */,
+				63596CE925DF545000B8EABF /* Stock+Codable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,7 +90,7 @@
 		637834B525DB0D5D0018A87C /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				637834B625DB0D8E0018A87C /* StockRecords.xcdatamodeld */,
+				63596D1925DF568300B8EABF /* StockRecords.xcdatamodeld */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -125,22 +101,6 @@
 				637834BA25DB1A7D0018A87C /* StockViewerView.swift */,
 			);
 			path = StockViewer;
-			sourceTree = "<group>";
-		};
-		637834C025DB1B640018A87C /* StocksViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				637834C225DB1B840018A87C /* StocksViewModel.swift */,
-			);
-			path = StocksViewModel;
-			sourceTree = "<group>";
-		};
-		637834C125DB1B700018A87C /* SearchViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6378349E25DAF3DE0018A87C /* SearchViewModel.swift */,
-			);
-			path = SearchViewModel;
 			sourceTree = "<group>";
 		};
 		63F4A7C525D5AF44003CE6CC = {
@@ -166,7 +126,6 @@
 			children = (
 				637834A525DAF5130018A87C /* Model */,
 				63F4A7FA25D5E40D003CE6CC /* Views */,
-				6378349D25DAF3CE0018A87C /* ViewModel */,
 				63F4A7F625D5E3CE003CE6CC /* Support */,
 			);
 			path = YOKE_Take_Home_Chad_Rutherford;
@@ -277,7 +236,6 @@
 			);
 			name = YOKE_Take_Home_Chad_Rutherford;
 			packageProductDependencies = (
-				637834A225DAF4FF0018A87C /* CRNetworkingManager */,
 			);
 			productName = YOKE_Take_Home_Chad_Rutherford;
 			productReference = 63F4A7CE25D5AF44003CE6CC /* YOKE_Take_Home_Chad_Rutherford.app */;
@@ -308,7 +266,6 @@
 			);
 			mainGroup = 63F4A7C525D5AF44003CE6CC;
 			packageReferences = (
-				637834A125DAF4FF0018A87C /* XCRemoteSwiftPackageReference "CRNetworkingManager" */,
 			);
 			productRefGroup = 63F4A7CF25D5AF44003CE6CC /* Products */;
 			projectDirPath = "";
@@ -379,24 +336,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F4A80225D5E4C3003CE6CC /* SearchView.swift in Sources */,
-				6378349F25DAF3DE0018A87C /* SearchViewModel.swift in Sources */,
-				637834A725DAF9540018A87C /* SearchResult.swift in Sources */,
-				63C5AC6925DC21CC00A42847 /* Stock+Representation.swift in Sources */,
+				63596D1B25DF568300B8EABF /* StockRecords.xcdatamodeld in Sources */,
 				63C5AC6F25DC36F100A42847 /* NetworkHandler.swift in Sources */,
-				63C5AC7E25DC4F3B00A42847 /* StockTickerResults.swift in Sources */,
 				63C5AC8125DC787D00A42847 /* UserDefaultsKeys.swift in Sources */,
-				637834C325DB1B840018A87C /* StocksViewModel.swift in Sources */,
 				63F4A7FF25D5E484003CE6CC /* StockListView.swift in Sources */,
 				63F4A80A25D5EE37003CE6CC /* SearchBar.swift in Sources */,
 				637834BB25DB1A7D0018A87C /* StockViewerView.swift in Sources */,
 				637834B325DB0BA30018A87C /* DataController.swift in Sources */,
+				63596CEA25DF545000B8EABF /* Stock+Codable.swift in Sources */,
 				637834AB25DAFDCA0018A87C /* APIConstants.swift in Sources */,
 				63F4A7F425D5E3AE003CE6CC /* MainTabView.swift in Sources */,
 				63C5AC6C25DC341C00A42847 /* StockRowView.swift in Sources */,
 				63F4A7D225D5AF45003CE6CC /* YOKE_Take_Home_Chad_RutherfordApp.swift in Sources */,
-				63C5AC7B25DC4E3600A42847 /* Intraday+Representation.swift in Sources */,
 				63F4A80E25D5F620003CE6CC /* UIApplication+EndEditing.swift in Sources */,
-				637834B825DB0D8E0018A87C /* StockRecords.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,32 +540,13 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		637834A125DAF4FF0018A87C /* XCRemoteSwiftPackageReference "CRNetworkingManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:chadarutherford/CRNetworkingManager.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		637834A225DAF4FF0018A87C /* CRNetworkingManager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 637834A125DAF4FF0018A87C /* XCRemoteSwiftPackageReference "CRNetworkingManager" */;
-			productName = CRNetworkingManager;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		637834B625DB0D8E0018A87C /* StockRecords.xcdatamodeld */ = {
+		63596D1925DF568300B8EABF /* StockRecords.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				637834B725DB0D8E0018A87C /* StockRecords.xcdatamodel */,
+				63596D1A25DF568300B8EABF /* StockRecords.xcdatamodel */,
 			);
-			currentVersion = 637834B725DB0D8E0018A87C /* StockRecords.xcdatamodel */;
+			currentVersion = 63596D1A25DF568300B8EABF /* StockRecords.xcdatamodel */;
 			path = StockRecords.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

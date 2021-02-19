@@ -1,38 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Daily" representedClassName="Daily" syncable="YES" codeGenerationType="class">
-        <attribute name="close" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="daily" inverseEntity="Stock"/>
-    </entity>
-    <entity name="Intraday" representedClassName="Intraday" syncable="YES" codeGenerationType="class">
-        <attribute name="close" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="intraday" inverseEntity="Stock"/>
-    </entity>
-    <entity name="Monthly" representedClassName="Monthly" syncable="YES" codeGenerationType="class">
-        <attribute name="close" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="monthly" inverseEntity="Stock"/>
-    </entity>
-    <entity name="Stock" representedClassName=".Stock" syncable="YES" codeGenerationType="class">
+    <entity name="Stock" representedClassName=".Stock" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="symbol" optional="YES" attributeType="String"/>
-        <relationship name="daily" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Daily" inverseName="stock" inverseEntity="Daily"/>
-        <relationship name="intraday" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Intraday" inverseName="stock" inverseEntity="Intraday"/>
-        <relationship name="monthly" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Monthly" inverseName="stock" inverseEntity="Monthly"/>
-        <relationship name="weekly" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Weekly" inverseName="stock" inverseEntity="Weekly"/>
-    </entity>
-    <entity name="Weekly" representedClassName="Weekly" syncable="YES" codeGenerationType="class">
-        <attribute name="close" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="weekly" inverseEntity="Stock"/>
     </entity>
     <elements>
-        <element name="Intraday" positionX="37.46566772460938" positionY="-103.581298828125" width="128" height="88"/>
-        <element name="Stock" positionX="-478.0020141601562" positionY="-121.2345581054688" width="128" height="133"/>
-        <element name="Daily" positionX="-216" positionY="-81" width="128" height="74"/>
-        <element name="Weekly" positionX="-261" positionY="-63" width="128" height="74"/>
-        <element name="Monthly" positionX="-252" positionY="-45" width="128" height="74"/>
+        <element name="Stock" positionX="-54" positionY="-9" width="128" height="59"/>
     </elements>
 </model>

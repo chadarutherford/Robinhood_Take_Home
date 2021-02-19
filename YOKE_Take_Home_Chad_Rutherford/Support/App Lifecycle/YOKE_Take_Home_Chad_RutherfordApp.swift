@@ -12,10 +12,22 @@ import SwiftUI
 struct YOKE_Take_Home_Chad_RutherfordApp: App {
 
     @StateObject var dataController: DataController
+    let dataImporter: DataImporter
+
+    let stocksToImport = [
+        "GME",
+        "AAPL",
+        "TSLA",
+        "CRSR",
+        "BCRX",
+        "ELY"
+    ]
 
     init() {
         let dataController = DataController()
         _dataController = StateObject(wrappedValue: dataController)
+        dataImporter = DataImporter(persistentContainer: dataController.container)
+        dataImporter.fetchStocks(stockSymbols: stocksToImport)
     }
 
     var body: some Scene {
