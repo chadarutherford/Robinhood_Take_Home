@@ -9,59 +9,38 @@
 import SwiftUI
 
 struct SearchView: View {
-//    @ObservedObject var searchViewModel = SearchViewModel()
+    @ObservedObject var searchViewModel = SearchViewModel()
     @State private var isEditing = false
 
     var body: some View {
-        Text("Hello World")
-//        NavigationView {
-//            VStack {
-//                HStack {
-//                    SearchBar(placeholder: "Search ...", text: $searchViewModel.stockSymbol)
-//                        .onTapGesture {
-//                            self.isEditing = true
-//                        }
-//
-//                    if isEditing {
-//                        Button(action: {
-//                            UIApplication.shared.endEditing(true)
-//                            self.isEditing = false
-//                            self.searchViewModel.stockSymbol = ""
-//                        }) {
-//                            Text("Cancel")
-//                        }
-//                        .padding(.trailing, 10)
-//                        .transition(.move(edge: .trailing))
-//                    }
-//                }
-//                .padding(.horizontal, 10)
-//
-//                List {
-//                    ForEach(searchViewModel.results) { result in
-//                        NavigationLink(
-//                            destination: Text("Destination"),
-//                            label: {
-//                                HStack {
-//                                    Text(result.symbol)
-//                                        .font(.headline)
-//                                        .fontWeight(.semibold)
-//
-//                                    Spacer()
-//
-//                                    Text(result.name)
-//                                        .lineLimit(2)
-//                                        .minimumScaleFactor(0.5)
-//                                        .frame(width: 140, height: 40, alignment: .trailing)
-//
-//                                }
-//                            })
-//                    }
-//                }
-//                .listStyle(InsetGroupedListStyle())
-//            }
-//            .navigationBarTitle("")
-//            .navigationBarHidden(true)
-//        }
+        VStack {
+            HStack {
+                SearchBar(placeholder: "Search ...", text: $searchViewModel.stockSymbol)
+                    .onTapGesture {
+                        self.isEditing = true
+                    }
+
+                if isEditing {
+                    Button(action: {
+                        UIApplication.shared.endEditing(true)
+                        self.isEditing = false
+                        self.searchViewModel.stockSymbol = ""
+                    }) {
+                        Text("Cancel")
+                    }
+                    .padding(.trailing, 10)
+                    .transition(.move(edge: .trailing))
+                }
+            }
+            .padding(.horizontal, 10)
+
+            List {
+                ForEach(searchViewModel.results) { result in
+                    SearchRowView(result: result)
+                }
+            }
+            .listStyle(InsetGroupedListStyle())
+        }
     }
 }
 
