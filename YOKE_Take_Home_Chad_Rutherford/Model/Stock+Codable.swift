@@ -70,7 +70,47 @@ extension Stock {
 
     var rowTickerValues: [Intraday] {
         if !intradayValues.isEmpty {
-            let sliceArray = intradayValues[0 ..< 7]
+            let sliceArray = intradayValues[0 ..< 24]
+            return Array(sliceArray)
+        } else {
+            return []
+        }
+    }
+
+    var weeklyValues: [Daily] {
+        let dailyValues = daily?.allObjects as? [Daily] ?? []
+        if !dailyValues.isEmpty {
+            let sliceArray = dailyValues[0 ..< 7]
+            return Array(sliceArray)
+        } else {
+            return []
+        }
+    }
+
+    var monthlyValues: [Weekly] {
+        let weeklyValues = weekly?.allObjects as? [Weekly] ?? []
+        if !weeklyValues.isEmpty {
+            let sliceArray = weeklyValues[0 ..< 4]
+            return Array(sliceArray)
+        } else {
+            return []
+        }
+    }
+
+    var oneYearValues: [Monthly] {
+        let monthlyValues = monthly?.allObjects as? [Monthly] ?? []
+        if !monthlyValues.isEmpty {
+            let sliceArray = monthlyValues[0 ..< 12]
+            return Array(sliceArray)
+        } else {
+            return []
+        }
+    }
+
+    var fiveYearValues: [Monthly] {
+        let monthlyValues = monthly?.allObjects as? [Monthly] ?? []
+        if !monthlyValues.isEmpty {
+            let sliceArray = monthlyValues[0 ..< 60]
             return Array(sliceArray)
         } else {
             return []
