@@ -3,6 +3,12 @@
     <entity name="Stock" representedClassName=".Stock" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="symbol" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+                <constraint value="symbol"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="Stock" positionX="-54" positionY="-9" width="128" height="59"/>
